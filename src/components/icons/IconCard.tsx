@@ -36,12 +36,12 @@ export default function IconCard({ icon }: IconCardProps) {
         <TooltipTrigger asChild>
           <Link
             href={`/icons/${icon.slug}`}
-            className="group relative flex min-w-[140px] flex-1 flex-col items-center justify-center gap-3 rounded-xl border border-white/[0.05] bg-[linear-gradient(180deg,rgba(18,22,28,0.4),rgba(12,14,18,0.6))] p-4 py-5 transition-all hover:border-white/[0.1] hover:bg-[linear-gradient(180deg,rgba(22,26,34,0.5),rgba(14,16,22,0.7))]"
+            className="group relative flex min-w-[140px] flex-1 flex-col items-center justify-center gap-3 rounded-xl border border-border/70 bg-[linear-gradient(180deg,rgba(246,250,255,0.9),rgba(236,243,255,0.96))] p-4 py-5 transition-all hover:border-border hover:bg-[linear-gradient(180deg,rgba(240,247,255,0.95),rgba(230,239,255,1))] dark:border-white/[0.05] dark:bg-[linear-gradient(180deg,rgba(18,22,28,0.4),rgba(12,14,18,0.6))] dark:hover:border-white/[0.1] dark:hover:bg-[linear-gradient(180deg,rgba(22,26,34,0.5),rgba(14,16,22,0.7))]"
           >
             <div className="absolute top-2 right-2 hidden sm:hidden [@media(hover:none)]:block">
               <button
                 type="button"
-                className="rounded-lg border border-white/[0.05] bg-white/[0.02] p-2 text-white/[0.35] transition-all hover:border-white/[0.1] hover:bg-white/[0.04] hover:text-white"
+                className="rounded-lg border border-border/70 bg-background/70 p-2 text-foreground/45 transition-all hover:border-border hover:bg-background hover:text-foreground dark:border-white/[0.05] dark:bg-white/[0.02] dark:text-white/[0.35] dark:hover:border-white/[0.1] dark:hover:bg-white/[0.04] dark:hover:text-white"
                 onClick={(e) => e.preventDefault()}
               >
                 <Play className="size-3.5" />
@@ -55,7 +55,7 @@ export default function IconCard({ icon }: IconCardProps) {
             >
               <PreviewIcon
                 size={44}
-                className="text-white/[0.6] transition-colors group-hover:text-white"
+                className="text-foreground/65 transition-colors group-hover:text-foreground dark:text-white/[0.6] dark:group-hover:text-white"
               />
             </motion.div>
 
@@ -63,7 +63,7 @@ export default function IconCard({ icon }: IconCardProps) {
               <button
                 type="button"
                 onClick={handleCopy}
-                className="rounded-lg border border-white/[0.05] bg-white/[0.02] p-1.5 text-white/[0.3] transition-all hover:border-white/[0.1] hover:bg-white/[0.04] hover:text-white"
+                className="rounded-lg border border-border/70 bg-background/70 p-1.5 text-foreground/40 transition-all hover:border-border hover:bg-background hover:text-foreground dark:border-white/[0.05] dark:bg-white/[0.02] dark:text-white/[0.3] dark:hover:border-white/[0.1] dark:hover:bg-white/[0.04] dark:hover:text-white"
               >
                 {copied ? (
                   <Copy className="size-3.5 text-emerald-400" />

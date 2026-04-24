@@ -41,7 +41,9 @@ interface TabsListProps {
 
 export function TabsList({ children, className }: TabsListProps) {
   return (
-    <div className={`flex border-b border-white/[0.06] ${className}`}>
+    <div
+      className={`flex border-b border-border/80 dark:border-white/[0.06] ${className}`}
+    >
       {children}
     </div>
   );
@@ -63,8 +65,8 @@ export function TabsTrigger({ value, children, className }: TabsTriggerProps) {
       onClick={() => setActiveTab(value)}
       className={`relative px-4 py-2.5 text-sm font-medium transition-colors ${
         isActive
-          ? "text-white border-b-2 border-[var(--color-highlight)]"
-          : "text-white/[0.4] hover:text-white"
+          ? "text-foreground border-b-2 border-[var(--color-highlight)] dark:text-white"
+          : "text-foreground/50 hover:text-foreground dark:text-white/[0.4] dark:hover:text-white"
       } ${className}`}
     >
       {children}

@@ -24,10 +24,10 @@ export default async function IconsPage({ searchParams }: PageProps<"/icons">) {
               <p className="text-xs font-semibold tracking-[0.28em] text-(--color-highlight) uppercase">
                 Icon catalog
               </p>
-              <h1 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              <h1 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground dark:text-white sm:text-4xl">
                 Animated icons for modern interfaces.
               </h1>
-              <p className="mt-4 text-base leading-relaxed text-white/45">
+              <p className="mt-4 text-base leading-relaxed text-foreground/65 dark:text-white/45">
                 Search, preview, copy, and install motion-first icons built to
                 fit seamlessly into React products.
               </p>

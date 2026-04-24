@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import CommandMenu from "@/components/layout/CommandMenu";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,15 +23,20 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className="dark h-full font-sans antialiased"
+      className="h-full font-sans antialiased"
+      suppressHydrationWarning
     >
       <body className="min-h-full overflow-x-hidden bg-background text-foreground">
-        <div className="relative flex min-h-screen flex-col">
-          <div className="hero-grid pointer-events-none absolute inset-0" />
-          <div className="hero-glow pointer-events-none absolute left-1/2 top-0 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
-          <CommandMenu />
-          <div className="relative flex min-h-screen flex-col">{children}</div>
-        </div>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className="relative flex min-h-screen flex-col">
+            <div className="hero-grid pointer-events-none absolute inset-0" />
+            <div className="hero-glow pointer-events-none absolute left-1/2 top-0 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
+            <CommandMenu />
+            <div className="relative flex min-h-screen flex-col">
+              {children}
+            </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

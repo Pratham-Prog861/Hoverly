@@ -48,7 +48,7 @@ export default function Hero() {
           initial="initial"
           animate="animate"
           transition={textAnimation.transition}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-4 py-2 text-[11px] tracking-[0.24em] text-white/68 uppercase shadow-[0_12px_60px_rgba(0,0,0,0.25)]"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/75 px-4 py-2 text-[11px] tracking-[0.24em] text-foreground/70 uppercase shadow-[0_12px_36px_rgba(15,23,42,0.12)] dark:border-white/10 dark:bg-white/6 dark:text-white/68 dark:shadow-[0_12px_60px_rgba(0,0,0,0.25)]"
         >
           <Sparkles className="size-3.5 text-[var(--color-highlight)]" />
           Shadcn-compatible motion icons
@@ -60,7 +60,7 @@ export default function Hero() {
             initial="initial"
             animate="animate"
             transition={textAnimation.transition}
-            className="font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
+            className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Beautiful animated icons with{" "}
             <span className="text-[var(--color-highlight)]">intent</span>
@@ -71,7 +71,7 @@ export default function Hero() {
             initial="initial"
             animate="animate"
             transition={{ ...textAnimation.transition, delay: 0.05 }}
-            className="mx-auto max-w-2xl text-lg leading-8 text-white/62 sm:text-xl"
+            className="mx-auto max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl"
           >
             Editable React components with motion baked in. Works cleanly with
             Next.js, shadcn, and modern design systems.
@@ -89,7 +89,7 @@ export default function Hero() {
             <Button
               asChild
               size="lg"
-              className="h-12 cursor-pointer rounded-2xl bg-white px-5 text-black hover:bg-white/88"
+              className="h-12 cursor-pointer rounded-2xl bg-foreground px-5 text-background hover:bg-foreground/88 dark:bg-white dark:text-black dark:hover:bg-white/88"
             >
               <Link href="/icons">
                 Browse Icons
@@ -100,7 +100,7 @@ export default function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="h-12 cursor-pointer rounded-2xl border-white/12 bg-white/6 px-5 text-white hover:bg-white/10"
+              className="h-12 cursor-pointer rounded-2xl border-border bg-card/80 px-5 text-foreground hover:bg-card dark:border-white/12 dark:bg-white/6 dark:text-white dark:hover:bg-white/10"
               onClick={handleCopy}
             >
               {copied ? (
@@ -194,34 +194,34 @@ function HeroBackground() {
 
   return (
     <div className="pointer-events-none absolute inset-0 hidden md:block">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(18,194,233,0.1),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(18,194,233,0.14),transparent_55%)] dark:bg-[radial-gradient(circle_at_center,rgba(18,194,233,0.1),transparent_55%)]" />
 
-      <FloatingIcon className="left-[4%] top-24 -rotate-[20deg] text-white/12">
+      <FloatingIcon className="left-[4%] top-24 -rotate-[20deg] text-foreground/14 dark:text-white/12">
         <AlignCenterIcon ref={iconARef} className="h-16 w-16 xl:h-20 xl:w-20" />
       </FloatingIcon>
 
-      <FloatingIcon className="left-[16%] top-44 rotate-[14deg] text-white/10">
+      <FloatingIcon className="left-[16%] top-44 rotate-[14deg] text-foreground/12 dark:text-white/10">
         <BellActiveIcon ref={iconBRef} className="h-28 w-28 xl:h-36 xl:w-36" />
       </FloatingIcon>
 
-      <FloatingIcon className="right-[12%] top-28 rotate-[22deg] text-white/20">
-        <ArrowBackUpIcon ref={iconCRef} size={104} strokeWidth={2.6} />
+      <FloatingIcon className="right-[12%] top-28 rotate-[22deg] text-foreground/22 dark:text-white/20">
+        <ArrowBackUpIcon ref={iconCRef} size={84} strokeWidth={2.6} />
       </FloatingIcon>
 
-      <FloatingIcon className="right-[20%] bottom-40 -rotate-[18deg] text-white/10">
-        <BellActiveIcon ref={iconDRef} className="h-32 w-32 xl:h-40 xl:w-40" />
+      <FloatingIcon className="right-[20%] bottom-40 -rotate-[18deg] text-foreground/12 dark:text-white/10">
+        <AlignCenterIcon ref={iconARef} className="h-16 w-16 xl:h-20 xl:w-20" />
       </FloatingIcon>
 
-      <FloatingIcon className="left-[10%] bottom-38 rotate-[10deg] text-white/18">
-        <ArrowBackUpIcon ref={iconERef} size={84} strokeWidth={2.6} />
+      <FloatingIcon className="left-[10%] bottom-38 rotate-[10deg] text-foreground/20 dark:text-white/18">
+        <ArrowBackUpIcon ref={iconERef} size={84} strokeWidth={2.4} />
       </FloatingIcon>
 
-      <FloatingIcon className="right-[8%] bottom-20 -rotate-[10deg] text-white/12">
+      <FloatingIcon className="right-[8%] bottom-20 -rotate-[10deg] text-foreground/14 dark:text-white/12">
         <BellActiveIcon ref={iconFRef} className="h-18 w-18 xl:h-24 xl:w-24" />
       </FloatingIcon>
 
-      <FloatingIcon className="left-[32%] top-18 rotate-[8deg] text-white/16">
-        <ArrowBackUpIcon ref={iconGRef} size={72} strokeWidth={2.6} />
+      <FloatingIcon className="left-[32%] top-18 rotate-[8deg] text-foreground/18 dark:text-white/16">
+        <ArrowBackUpIcon ref={iconGRef} size={84} strokeWidth={2.6} />
       </FloatingIcon>
     </div>
   );
