@@ -8,6 +8,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/Container";
 import { AlignCenterIcon } from "@/icons/align-center-icon";
+import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
+import { BellActiveIcon } from "@/icons/bell-active-icon";
 import type { AnimatedIconHandle } from "@/icons/types";
 import { hoverlyIcons } from "@/lib/icons";
 
@@ -191,7 +193,7 @@ function HeroBackground() {
   }, [clearAllAnimationTimeouts, triggerAllAnimations]);
 
   return (
-    <div className="pointer-events-none absolute inset-0 hidden md:block lg:pointer-events-auto">
+    <div className="pointer-events-none absolute inset-0 hidden md:block">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(18,194,233,0.1),transparent_55%)]" />
 
       <FloatingIcon className="left-[4%] top-24 -rotate-[20deg] text-white/12">
@@ -199,27 +201,27 @@ function HeroBackground() {
       </FloatingIcon>
 
       <FloatingIcon className="left-[16%] top-44 rotate-[14deg] text-white/10">
-        <AlignCenterIcon ref={iconBRef} className="h-28 w-28 xl:h-36 xl:w-36" />
+        <BellActiveIcon ref={iconBRef} className="h-28 w-28 xl:h-36 xl:w-36" />
       </FloatingIcon>
 
-      <FloatingIcon className="right-[12%] top-28 rotate-[22deg] text-white/12">
-        <AlignCenterIcon ref={iconCRef} className="h-24 w-24 xl:h-32 xl:w-32" />
+      <FloatingIcon className="right-[12%] top-28 rotate-[22deg] text-white/20">
+        <ArrowBackUpIcon ref={iconCRef} size={104} strokeWidth={2.6} />
       </FloatingIcon>
 
       <FloatingIcon className="right-[20%] bottom-40 -rotate-[18deg] text-white/10">
-        <AlignCenterIcon ref={iconDRef} className="h-32 w-32 xl:h-40 xl:w-40" />
+        <BellActiveIcon ref={iconDRef} className="h-32 w-32 xl:h-40 xl:w-40" />
       </FloatingIcon>
 
-      <FloatingIcon className="left-[10%] bottom-38 rotate-[10deg] text-white/12">
-        <AlignCenterIcon ref={iconERef} className="h-14 w-14 xl:h-20 xl:w-20" />
+      <FloatingIcon className="left-[10%] bottom-38 rotate-[10deg] text-white/18">
+        <ArrowBackUpIcon ref={iconERef} size={84} strokeWidth={2.6} />
       </FloatingIcon>
 
       <FloatingIcon className="right-[8%] bottom-20 -rotate-[10deg] text-white/12">
-        <AlignCenterIcon ref={iconFRef} className="h-18 w-18 xl:h-24 xl:w-24" />
+        <BellActiveIcon ref={iconFRef} className="h-18 w-18 xl:h-24 xl:w-24" />
       </FloatingIcon>
 
-      <FloatingIcon className="left-[32%] top-18 rotate-[8deg] text-white/8">
-        <AlignCenterIcon ref={iconGRef} className="h-12 w-12 xl:h-16 xl:w-16" />
+      <FloatingIcon className="left-[32%] top-18 rotate-[8deg] text-white/16">
+        <ArrowBackUpIcon ref={iconGRef} size={72} strokeWidth={2.6} />
       </FloatingIcon>
     </div>
   );
@@ -242,7 +244,7 @@ function FloatingIcon({
         ease: "easeInOut",
         repeat: Number.POSITIVE_INFINITY,
       }}
-      className={`absolute ${className}`}
+      className={`pointer-events-auto absolute ${className}`}
     >
       {children}
     </motion.div>

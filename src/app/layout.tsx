@@ -19,7 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark h-full font-sans antialiased">
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className="dark h-full font-sans antialiased"
+    >
       <body className="min-h-full overflow-x-hidden bg-background text-foreground">
         <div className="relative flex min-h-screen flex-col">
           <div className="hero-grid pointer-events-none absolute inset-0" />

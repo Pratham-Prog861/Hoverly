@@ -4,6 +4,7 @@ import { Command } from "cmdk";
 import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { Dialog } from "radix-ui";
 
 import { hoverlyIcons } from "@/lib/icons";
 
@@ -62,6 +63,7 @@ export default function CommandMenu() {
       className="fixed left-1/2 top-24 z-50 w-[min(640px,calc(100vw-1.5rem))] -translate-x-1/2 overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#101116] shadow-[0_24px_120px_rgba(0,0,0,0.45)]"
     >
       <div className="fixed inset-0 -z-10 bg-black/60 backdrop-blur-sm" />
+      <Dialog.Title className="sr-only">Global search</Dialog.Title>
 
       <div className="flex items-center gap-3 border-b border-white/8 px-4 py-4">
         <Search className="size-4 text-white/45" />

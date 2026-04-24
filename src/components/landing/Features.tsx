@@ -5,6 +5,8 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 
 import { AlignCenterIcon } from "@/icons/align-center-icon";
+import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
+import { BellActiveIcon } from "@/icons/bell-active-icon";
 
 const featureCards = [
   {
@@ -121,7 +123,11 @@ function OpenSourceVisual() {
         </div>
       </div>
       <div className="absolute bottom-28 right-8 rounded-[1.5rem] border border-white/10 bg-white/6 p-5 backdrop-blur-sm">
-        <AlignCenterIcon className="h-16 w-16 text-white/85" />
+        <ArrowBackUpIcon
+          size={74}
+          strokeWidth={2.6}
+          className="text-white/85"
+        />
       </div>
     </div>
   );
@@ -153,10 +159,7 @@ function CustomizeVisual() {
         </div>
       </div>
       <div className="absolute bottom-12 right-10 flex h-44 w-44 items-center justify-center rounded-[2rem] border border-white/10 bg-white/6 shadow-[0_24px_80px_rgba(18,194,233,0.16)]">
-        <AlignCenterIcon
-          className="h-24 w-24 text-[var(--color-highlight)]"
-          strokeWidth={2.4}
-        />
+        <BellActiveIcon className="h-24 w-24 text-[var(--color-highlight)]" />
       </div>
       <div className="absolute right-8 top-8 rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[11px] tracking-[0.2em] text-white/55 uppercase">
         live preview
@@ -208,7 +211,11 @@ function RegistryVisual() {
         </div>
       </div>
       <div className="absolute bottom-10 right-10 rounded-[1.5rem] border border-white/10 bg-white/6 p-5">
-        <AlignCenterIcon className="h-14 w-14 text-white/90" />
+        <ArrowBackUpIcon
+          size={64}
+          strokeWidth={2.6}
+          className="text-white/90"
+        />
       </div>
     </div>
   );
@@ -222,7 +229,7 @@ function MotionVisual() {
         transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
         className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[2rem] border border-white/10 bg-white/6 shadow-[0_24px_80px_rgba(18,194,233,0.18)]"
       >
-        <AlignCenterIcon className="h-24 w-24 text-white" />
+        <BellActiveIcon className="h-24 w-24 text-white" />
       </motion.div>
       <div className="absolute left-6 top-6 rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[11px] tracking-[0.2em] text-white/55 uppercase">
         hover aware

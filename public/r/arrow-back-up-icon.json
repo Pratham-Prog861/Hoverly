@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "arrow-back-up-icon",
+  "type": "registry:component",
+  "title": "Arrow Back Up Icon",
+  "description": "A shadcn-compatible animated arrow back up icon powered by Motion.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "src/icons/arrow-back-up-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/arrow-back-up-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}

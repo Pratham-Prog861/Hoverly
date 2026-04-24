@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bell-active-icon",
+  "type": "registry:component",
+  "title": "Bell Active Icon",
+  "description": "A shadcn-compatible animated bell active icon powered by Motion.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "src/icons/bell-active-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/bell-active-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
