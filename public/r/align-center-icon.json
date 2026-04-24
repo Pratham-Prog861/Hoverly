@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "align-center-icon",
+  "type": "registry:component",
+  "title": "Align Center Icon",
+  "description": "A shadcn-compatible animated align center icon powered by Motion.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "src/icons/align-center-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/align-center-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
