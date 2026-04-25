@@ -4,9 +4,9 @@ import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 
-import { AlignCenterIcon } from "@/icons/align-center-icon";
 import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
 import { BellActiveIcon } from "@/icons/bell-active-icon";
+import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
 
 const featureCards = [
   {
@@ -85,10 +85,10 @@ function FeatureCard({ component, label, description }: FeatureCardProps) {
     <motion.div
       whileHover={{ y: -2 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className="group surface-card relative flex h-[400px] flex-col overflow-hidden rounded-[1.75rem]"
+      className="group surface-card relative flex h-100 flex-col overflow-hidden rounded-[1.75rem]"
     >
       <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div className="absolute inset-0 bg-linear-to-br from-[var(--color-highlight)]/14 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-br from-(--color-highlight)/14 via-transparent to-transparent" />
       </div>
 
       <div className="relative h-full w-full overflow-hidden">
@@ -110,7 +110,7 @@ function FeatureCard({ component, label, description }: FeatureCardProps) {
 function OpenSourceVisual() {
   return (
     <div className="relative h-full w-full bg-[radial-gradient(circle_at_top_left,rgba(18,194,233,0.16),transparent_35%),linear-gradient(135deg,#eef4ff,#f7fbff)] p-6 dark:bg-[radial-gradient(circle_at_top_left,rgba(18,194,233,0.16),transparent_35%),linear-gradient(135deg,#111217,#161823)]">
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(2,6,23,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(2,6,23,0.06)_1px,transparent_1px)] bg-[size:38px_38px] opacity-40 dark:bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] dark:opacity-30" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(2,6,23,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(2,6,23,0.06)_1px,transparent_1px)] bg-size-[38px_38px] opacity-40 dark:bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] dark:opacity-30" />
       <div className="absolute left-6 top-6 rounded-full border border-border/70 bg-card/75 px-3 py-1 text-[11px] tracking-[0.2em] text-foreground/60 uppercase dark:border-white/10 dark:bg-white/6 dark:text-white/60">
         source
       </div>
@@ -122,7 +122,7 @@ function OpenSourceVisual() {
         <div className="mt-4 space-y-3">
           <div className="h-2 w-2/3 rounded-full bg-foreground/14 dark:bg-white/12" />
           <div className="h-2 w-1/2 rounded-full bg-foreground/12 dark:bg-white/10" />
-          <div className="h-2 w-3/4 rounded-full bg-[var(--color-highlight)]/35" />
+          <div className="h-2 w-3/4 rounded-full bg-(--color-highlight)/35" />
           <div className="h-2 w-1/3 rounded-full bg-foreground/12 dark:bg-white/10" />
         </div>
       </div>
@@ -154,7 +154,7 @@ function CustomizeVisual() {
           </div>
           <div className="flex items-center justify-between rounded-xl bg-foreground/6 px-3 py-2 dark:bg-white/5">
             <span>color</span>
-            <span className="font-mono text-[var(--color-highlight)]">
+            <span className="font-mono text-(--color-highlight)">
               currentColor
             </span>
           </div>
@@ -165,7 +165,7 @@ function CustomizeVisual() {
         </div>
       </div>
       <div className="absolute bottom-12 right-10 flex h-44 w-44 items-center justify-center rounded-[2rem] border border-border/70 bg-card/70 shadow-[0_24px_60px_rgba(18,194,233,0.18)] dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(18,194,233,0.16)]">
-        <BellActiveIcon className="h-24 w-24 text-[var(--color-highlight)]" />
+        <BellActiveIcon className="h-24 w-24 text-(--color-highlight)" />
       </div>
       <div className="absolute right-8 top-8 rounded-full border border-border/70 bg-card/75 px-3 py-1 text-[11px] tracking-[0.2em] text-foreground/55 uppercase dark:border-white/10 dark:bg-white/6 dark:text-white/55">
         live preview
@@ -217,9 +217,8 @@ function RegistryVisual() {
         </div>
       </div>
       <div className="absolute bottom-10 right-10 rounded-[1.5rem] border border-border/70 bg-card/70 p-5 dark:border-white/10 dark:bg-white/6">
-        <ArrowBackUpIcon
+        <BrandReactNativeIcon
           size={64}
-          strokeWidth={2.6}
           className="text-foreground/90 dark:text-white/90"
         />
       </div>
@@ -242,7 +241,7 @@ function MotionVisual() {
       </div>
       <div className="absolute bottom-24 left-6 space-y-3">
         <div className="h-2 w-18 rounded-full bg-foreground/18 dark:bg-white/15" />
-        <div className="h-2 w-24 rounded-full bg-[var(--color-highlight)]/40" />
+        <div className="h-2 w-24 rounded-full bg-(--color-highlight)/40" />
         <div className="h-2 w-14 rounded-full bg-foreground/15 dark:bg-white/12" />
       </div>
     </div>

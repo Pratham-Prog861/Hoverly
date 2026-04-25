@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { AlignCenterIcon } from "@/icons/align-center-icon";
 import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
 import { BellActiveIcon } from "@/icons/bell-active-icon";
+import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
 
 const githubUrl = "https://github.com/pratham-prog861/hoverly";
 
@@ -128,11 +129,16 @@ export default function Footer() {
                         size={previewIconSize}
                         className="text-foreground/55 transition group-hover:text-(--color-highlight) dark:text-white/50"
                       />
-                    ) : (
+                    ) : index % 4 === 2 ? (
                       <ArrowBackUpIcon
                         size={previewIconSize}
                         className="text-foreground/55 transition group-hover:text-(--color-highlight) dark:text-white/50"
                         strokeWidth={icon.strokeWidth}
+                      />
+                    ) : (
+                      <BrandReactNativeIcon
+                        size={previewIconSize}
+                        className="text-foreground/55 transition group-hover:text-(--color-highlight) dark:text-white/50"
                       />
                     )}
                   </motion.span>

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "brand-react-native-icon",
+  "type": "registry:component",
+  "title": "Brand React Native Icon",
+  "description": "A shadcn-compatible animated React Native brand icon powered by Motion.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "src/icons/brand-react-native-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/brand-react-native-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}

@@ -10,6 +10,7 @@ import { Container } from "@/components/ui/Container";
 import { AlignCenterIcon } from "@/icons/align-center-icon";
 import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
 import { BellActiveIcon } from "@/icons/bell-active-icon";
+import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
 import type { AnimatedIconHandle } from "@/icons/types";
 import { hoverlyIcons } from "@/lib/icons";
 
@@ -50,7 +51,7 @@ export default function Hero() {
           transition={textAnimation.transition}
           className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/75 px-4 py-2 text-[11px] tracking-[0.24em] text-foreground/70 uppercase shadow-[0_12px_36px_rgba(15,23,42,0.12)] dark:border-white/10 dark:bg-white/6 dark:text-white/68 dark:shadow-[0_12px_60px_rgba(0,0,0,0.25)]"
         >
-          <Sparkles className="size-3.5 text-[var(--color-highlight)]" />
+          <Sparkles className="size-3.5 text-(--color-highlight)" />
           Shadcn-compatible motion icons
         </motion.div>
 
@@ -63,7 +64,7 @@ export default function Hero() {
             className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Beautiful animated icons with{" "}
-            <span className="text-[var(--color-highlight)]">intent</span>
+            <span className="text-(--color-highlight)">intent</span>
           </motion.h1>
 
           <motion.p
@@ -196,27 +197,30 @@ function HeroBackground() {
     <div className="pointer-events-none absolute inset-0 hidden md:block">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(18,194,233,0.14),transparent_55%)] dark:bg-[radial-gradient(circle_at_center,rgba(18,194,233,0.1),transparent_55%)]" />
 
-      <FloatingIcon className="left-[4%] top-24 -rotate-[20deg] text-foreground/14 dark:text-white/12">
+      <FloatingIcon className="left-[4%] top-24 rotate-[-20deg] text-foreground/14 dark:text-white/12">
         <AlignCenterIcon ref={iconARef} className="h-16 w-16 xl:h-20 xl:w-20" />
       </FloatingIcon>
 
-      <FloatingIcon className="left-[16%] top-44 rotate-[14deg] text-foreground/12 dark:text-white/10">
+      <FloatingIcon className="left-[16%] top-44 rotate-14 text-foreground/12 dark:text-white/10">
         <BellActiveIcon ref={iconBRef} className="h-28 w-28 xl:h-36 xl:w-36" />
       </FloatingIcon>
 
-      <FloatingIcon className="right-[12%] top-28 rotate-[22deg] text-foreground/22 dark:text-white/20">
+      <FloatingIcon className="right-[12%] top-28 rotate-22 text-foreground/22 dark:text-white/20">
         <ArrowBackUpIcon ref={iconCRef} size={84} strokeWidth={2.6} />
       </FloatingIcon>
 
-      <FloatingIcon className="right-[20%] bottom-40 -rotate-[18deg] text-foreground/12 dark:text-white/10">
-        <AlignCenterIcon ref={iconARef} className="h-16 w-16 xl:h-20 xl:w-20" />
+      <FloatingIcon className="right-[20%] bottom-40 rotate-[-18deg] text-foreground/12 dark:text-white/10">
+        <BrandReactNativeIcon
+          ref={iconDRef}
+          className="h-16 w-16 xl:h-20 xl:w-20"
+        />
       </FloatingIcon>
 
-      <FloatingIcon className="left-[10%] bottom-38 rotate-[10deg] text-foreground/20 dark:text-white/18">
+      <FloatingIcon className="left-[10%] bottom-38 rotate-10 text-foreground/20 dark:text-white/18">
         <ArrowBackUpIcon ref={iconERef} size={84} strokeWidth={2.4} />
       </FloatingIcon>
 
-      <FloatingIcon className="right-[8%] bottom-20 -rotate-[10deg] text-foreground/14 dark:text-white/12">
+      <FloatingIcon className="right-[8%] bottom-20 rotate-[-10deg] text-foreground/14 dark:text-white/12">
         <BellActiveIcon ref={iconFRef} className="h-18 w-18 xl:h-24 xl:w-24" />
       </FloatingIcon>
 
