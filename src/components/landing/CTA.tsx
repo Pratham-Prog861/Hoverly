@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { AlignCenterIcon } from "@/icons/align-center-icon";
+import HashtagIcon from "@/icons/hashtag-icon";
 import { hoverlyIcons } from "@/lib/icons";
 
 const githubUrl = "https://github.com/pratham-prog861/hoverly";
@@ -112,7 +112,7 @@ export default function CTA() {
                   </h3>
                 </div>
                 <div className="flex size-12 items-center justify-center rounded-xl border border-border/70 bg-background/70 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] transition-transform duration-500 group-hover:scale-105 dark:border-white/6 dark:bg-black/40 dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.04)]">
-                  <AlignCenterIcon className="h-6 w-6 text-foreground dark:text-white" />
+                  <HashtagIcon className="h-6 w-6 text-foreground dark:text-white" />
                 </div>
               </div>
 

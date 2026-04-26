@@ -4,8 +4,9 @@ import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 
-import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
-import { BellActiveIcon } from "@/icons/bell-active-icon";
+import HashtagIcon from "@/icons/hashtag-icon";
+import ArrowBackIcon from "@/icons/arrow-back-icon";
+import LinkedinIcon from "@/icons/linkedin-icon";
 import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
 
 const featureCards = [
@@ -127,7 +128,7 @@ function OpenSourceVisual() {
         </div>
       </div>
       <div className="absolute bottom-28 right-8 rounded-[1.5rem] border border-border/70 bg-card/70 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white/6">
-        <ArrowBackUpIcon
+        <HashtagIcon
           size={74}
           strokeWidth={2.6}
           className="text-foreground/85 dark:text-white/85"
@@ -165,7 +166,7 @@ function CustomizeVisual() {
         </div>
       </div>
       <div className="absolute bottom-12 right-10 flex h-44 w-44 items-center justify-center rounded-[2rem] border border-border/70 bg-card/70 shadow-[0_24px_60px_rgba(18,194,233,0.18)] dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(18,194,233,0.16)]">
-        <BellActiveIcon className="h-24 w-24 text-(--color-highlight)" />
+        <ArrowBackIcon size={96} className="text-(--color-highlight)" />
       </div>
       <div className="absolute right-8 top-8 rounded-full border border-border/70 bg-card/75 px-3 py-1 text-[11px] tracking-[0.2em] text-foreground/55 uppercase dark:border-white/10 dark:bg-white/6 dark:text-white/55">
         live preview
@@ -217,7 +218,7 @@ function RegistryVisual() {
         </div>
       </div>
       <div className="absolute bottom-10 right-10 rounded-[1.5rem] border border-border/70 bg-card/70 p-5 dark:border-white/10 dark:bg-white/6">
-        <BrandReactNativeIcon
+        <LinkedinIcon
           size={64}
           className="text-foreground/90 dark:text-white/90"
         />
@@ -234,7 +235,7 @@ function MotionVisual() {
         transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
         className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[2rem] border border-border/70 bg-card/75 shadow-[0_24px_80px_rgba(18,194,233,0.2)] dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(18,194,233,0.18)]"
       >
-        <BellActiveIcon className="h-24 w-24 text-foreground dark:text-white" />
+        <BrandReactNativeIcon size={96} className="text-foreground dark:text-white" />
       </motion.div>
       <div className="absolute left-6 top-6 rounded-full border border-border/70 bg-card/75 px-3 py-1 text-[11px] tracking-[0.2em] text-foreground/55 uppercase dark:border-white/10 dark:bg-white/6 dark:text-white/55">
         hover aware

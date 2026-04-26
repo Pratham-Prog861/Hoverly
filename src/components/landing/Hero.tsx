@@ -8,17 +8,47 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/Container";
 import { AlignCenterIcon } from "@/icons/align-center-icon";
 import ArrowBackIcon from "@/icons/arrow-back-icon";
-import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
+import HashtagIcon from "@/icons/hashtag-icon";
 import { BellActiveIcon } from "@/icons/bell-active-icon";
-import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
+import LinkedinIcon from "@/icons/linkedin-icon";
 
 const icons = [
-  { Icon: AlignCenterIcon, position: "left-[3%] top-24", size: 120, key: "align" },
-  { Icon: ArrowBackIcon, position: "left-[15%] top-40", size: 100, key: "arrowback" },
-  { Icon: ArrowBackUpIcon, position: "right-[12%] top-28", size: 110, key: "arrowbackup" },
-  { Icon: BellActiveIcon, position: "right-[5%] bottom-56", size: 90, key: "bell" },
-  { Icon: BrandReactNativeIcon, position: "left-[8%] bottom-32", size: 80, key: "react" },
-  { Icon: ArrowBackUpIcon, position: "right-[18%] bottom-20", size: 70, key: "arrowbackup2" },
+  {
+    Icon: AlignCenterIcon,
+    position: "left-[3%] top-24",
+    size: 120,
+    key: "align",
+  },
+  {
+    Icon: ArrowBackIcon,
+    position: "left-[15%] top-40",
+    size: 100,
+    key: "arrowback",
+  },
+  {
+    Icon: HashtagIcon,
+    position: "right-[12%] top-28",
+    size: 110,
+    key: "hashtag",
+  },
+  {
+    Icon: BellActiveIcon,
+    position: "right-[5%] bottom-56",
+    size: 90,
+    key: "bell",
+  },
+  {
+    Icon: LinkedinIcon,
+    position: "left-[8%] bottom-32",
+    size: 80,
+    key: "linkedin",
+  },
+  {
+    Icon: HashtagIcon,
+    position: "right-[18%] bottom-20",
+    size: 70,
+    key: "hashtag2",
+  },
 ];
 
 function getRandomIcons() {
@@ -91,8 +121,8 @@ export default function Hero() {
             transition={textAnimation.transition}
             className="mx-auto max-w-xl text-lg text-foreground/60 dark:text-white/50"
           >
-            Editable React components with motion baked in. Works seamlessly with
-            Next.js, shadcn, and modern design systems.
+            Editable React components with motion baked in. Works seamlessly
+            with Next.js, shadcn, and modern design systems.
           </motion.p>
         </div>
 

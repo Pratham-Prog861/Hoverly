@@ -7,23 +7,23 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AlignCenterIcon } from "@/icons/align-center-icon";
 import ArrowBackIcon from "@/icons/arrow-back-icon";
-import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
+import HashtagIcon from "@/icons/hashtag-icon";
 import { BellActiveIcon } from "@/icons/bell-active-icon";
-import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
+import LinkedinIcon from "@/icons/linkedin-icon";
 
 const githubUrl = "https://github.com/pratham-prog861/hoverly";
 
 const footerIcons = [
   { id: "1", Icon: AlignCenterIcon },
   { id: "2", Icon: ArrowBackIcon },
-  { id: "3", Icon: ArrowBackUpIcon },
+  { id: "3", Icon: HashtagIcon },
   { id: "4", Icon: BellActiveIcon },
-  { id: "5", Icon: BrandReactNativeIcon },
-  { id: "6", Icon: AlignCenterIcon },
-  { id: "7", Icon: ArrowBackIcon },
-  { id: "8", Icon: ArrowBackUpIcon },
-  { id: "9", Icon: BellActiveIcon },
-  { id: "10", Icon: BrandReactNativeIcon },
+  { id: "5", Icon: LinkedinIcon },
+  { id: "6", Icon: HashtagIcon },
+  { id: "7", Icon: LinkedinIcon },
+  { id: "8", Icon: AlignCenterIcon },
+  { id: "9", Icon: ArrowBackIcon },
+  { id: "10", Icon: BellActiveIcon },
 ];
 
 export default function Footer() {
@@ -33,7 +33,11 @@ export default function Footer() {
         <div className="grid gap-y-10 md:grid-cols-3 md:gap-x-8 pb-2">
           <div className="space-y-5 lg:pr-6">
             <Link href="/" className="inline-flex items-center gap-2">
-              <img src="/logo.png" alt="Hoverly" className="h-7 w-7 rounded-lg" />
+              <img
+                src="/logo.png"
+                alt="Hoverly"
+                className="h-7 w-7 rounded-lg"
+              />
               <span className="font-heading text-sm font-semibold tracking-[0.16em] text-foreground uppercase dark:text-white">
                 Hoverly
               </span>
