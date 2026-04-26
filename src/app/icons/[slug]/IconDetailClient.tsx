@@ -270,7 +270,7 @@ export function IconDetailClient({
                         )}
                       </button>
                     </div>
-                    <div className="max-h-[400px] overflow-auto">
+                    <div className="max-h-100 overflow-auto">
                       <pre className="p-4 text-sm">
                         <code className="text-foreground/80 dark:text-white/70">{iconData.sourceCode}</code>
                       </pre>

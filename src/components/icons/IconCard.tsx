@@ -1,7 +1,6 @@
 "use client";
 
 import { Copy, Play } from "lucide-react";
-import { motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
@@ -35,7 +34,7 @@ export default function IconCard({ icon }: IconCardProps) {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="bg-background relative flex min-w-[140px] flex-1 flex-col items-center justify-center gap-4 rounded-lg border p-4 shadow-sm transition-all hover:shadow-md sm:w-48 sm:flex-none dark:bg-black/40 dark:border-white/10 cursor-pointer">
+          <div className="bg-background relative flex min-w-35 flex-1 flex-col items-center justify-center gap-4 rounded-lg border p-4 shadow-sm transition-all hover:shadow-md sm:w-48 sm:flex-none dark:bg-black/40 dark:border-white/10 cursor-pointer">
             <div className="absolute top-2 right-2 hidden sm:hidden [@media(hover:none)]:block">
               <button className="text-foreground/40 hover:bg-foreground/10 hover:text-foreground rounded-md p-2 transition-colors dark:text-white/30 dark:hover:bg-white/10 dark:hover:text-white">
                 <Play className="size-4" />
@@ -46,16 +45,12 @@ export default function IconCard({ icon }: IconCardProps) {
               href={`/icons/${icon.slug}`}
               className="flex cursor-pointer flex-col items-center justify-center gap-2 p-2"
             >
-              <motion.div
-                className="flex cursor-pointer items-center justify-center"
-                whileHover={{ scale: 1.08 }}
-                transition={{ duration: 0.15 }}
-              >
+              <div className="flex cursor-pointer items-center justify-center">
                 <PreviewIcon
                   size={56}
                   className="text-foreground/70 transition-colors hover:text-foreground dark:text-white/60 dark:hover:text-white"
                 />
-              </motion.div>
+              </div>
             </Link>
 
             <div className="flex items-center gap-2">

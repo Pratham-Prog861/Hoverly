@@ -13,44 +13,23 @@ const ArrowBackIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
 
     const start = async () => {
       await animate(
-        ".path-arrow",
+        ".path",
         { pathLength: 0, opacity: 0, pathOffset: 1 },
         { duration: 0 },
       );
-      await animate(
-        ".path-curve",
-        { pathLength: 0, opacity: 0, pathOffset: 1 },
-        { duration: 0 },
-      );
-
-      // Arrow draws first from right to left.
       animate(
-        ".path-arrow",
+        ".path",
         { pathLength: [0, 1], opacity: [0, 1], pathOffset: [1, 0] },
-        { duration: 0.35, ease: "easeOut" },
-      );
-
-      // Tail line follows with a slight delay.
-      animate(
-        ".path-curve",
-        { pathLength: [0, 1], opacity: [0, 1], pathOffset: [1, 0] },
-        { duration: 0.55, ease: "easeOut", delay: 0.2 },
+        { duration: 0.7, ease: "easeOut" },
       );
     };
 
     const stop = () => {
-      animate([
-        [
-          ".path-arrow",
-          { pathLength: 1, opacity: 1, pathOffset: 0 },
-          { duration: 0.2 },
-        ],
-        [
-          ".path-curve",
-          { pathLength: 1, opacity: 1, pathOffset: 0 },
-          { duration: 0.2 },
-        ],
-      ]);
+      animate(
+        ".path",
+        { pathLength: 1, opacity: 1, pathOffset: 0 },
+        { duration: 0.2 },
+      );
     };
 
     useImperativeHandle(ref, () => ({
@@ -79,14 +58,8 @@ const ArrowBackIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
 
           <motion.path
-            className="path-arrow"
-            d="M9 16l-4 -4l4 -4"
-            style={{ pathLength: 1, pathOffset: 0, opacity: 1 }}
-          />
-
-          <motion.path
-            className="path-curve"
-            d="M5 12h10a4 4 0 1 0 0 -8h-1"
+            className="path"
+            d="M9 16l-4 -4l4 -4 M5 12h10a4 4 0 1 0 0 -8h-1"
             style={{ pathLength: 1, pathOffset: 0, opacity: 1 }}
           />
         </svg>

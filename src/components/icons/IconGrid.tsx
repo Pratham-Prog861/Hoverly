@@ -54,7 +54,7 @@ export default function IconGrid({ icons, initialQuery = "" }: IconGridProps) {
       {filteredItems.length > 0 ? (
         <motion.div
           className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >

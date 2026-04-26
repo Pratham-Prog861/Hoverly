@@ -33,9 +33,7 @@ export default function Footer() {
         <div className="grid gap-y-10 md:grid-cols-3 md:gap-x-8 pb-2">
           <div className="space-y-5 lg:pr-6">
             <Link href="/" className="inline-flex items-center gap-2">
-              <span className="flex size-8 items-center justify-center rounded-lg border border-border/40 bg-card text-sm font-bold text-foreground dark:border-white/8 dark:bg-white/5 dark:text-white">
-                H
-              </span>
+              <img src="/logo.png" alt="Hoverly" className="h-7 w-7 rounded-lg" />
               <span className="font-heading text-sm font-semibold tracking-[0.16em] text-foreground uppercase dark:text-white">
                 Hoverly
               </span>

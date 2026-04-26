@@ -12,29 +12,24 @@ const ArrowBackUpIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const start = async () => {
-      await animate(".path-arrow", { pathLength: 0, opacity: 0, pathOffset: 1 }, { duration: 0 });
-      await animate(".path-curve", { pathLength: 0, opacity: 0, pathOffset: 1 }, { duration: 0 });
-
-      // Arrow draws first — right to left, tip leads
-      animate(
-        ".path-arrow",
-        { pathLength: [0, 1], opacity: [0, 1], pathOffset: [1, 0] },
-        { duration: 0.35, ease: "easeOut" },
+      await animate(
+        ".path",
+        { pathLength: 0, opacity: 0, pathOffset: 1 },
+        { duration: 0 },
       );
-
-      // Curve unfolds after — right to left, following the arrow
       animate(
-        ".path-curve",
+        ".path",
         { pathLength: [0, 1], opacity: [0, 1], pathOffset: [1, 0] },
-        { duration: 0.55, ease: "easeOut", delay: 0.2 },
+        { duration: 0.7, ease: "easeOut" },
       );
     };
 
     const stop = () => {
-      animate([
-        [".path-arrow", { pathLength: 1, opacity: 1, pathOffset: 0 }, { duration: 0.2 }],
-        [".path-curve", { pathLength: 1, opacity: 1, pathOffset: 0 }, { duration: 0.2 }],
-      ]);
+      animate(
+        ".path",
+        { pathLength: 1, opacity: 1, pathOffset: 0 },
+        { duration: 0.2 },
+      );
     };
 
     useImperativeHandle(ref, () => ({
@@ -63,14 +58,8 @@ const ArrowBackUpIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
 
           <motion.path
-            className="path-arrow"
-            d="M9 14l-4 -4l4 -4"
-            style={{ pathLength: 1, pathOffset: 0, opacity: 1 }}
-          />
-
-          <motion.path
-            className="path-curve"
-            d="M5 10h11a4 4 0 1 1 0 8h-1"
+            className="path"
+            d="M9 14l-4 -4l4 -4 M5 10h11a4 4 0 1 1 0 8h-1"
             style={{ pathLength: 1, pathOffset: 0, opacity: 1 }}
           />
         </svg>
