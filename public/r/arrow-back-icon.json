@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "arrow-back-icon",
+  "type": "registry:component",
+  "title": "Arrow Back Icon",
+  "description": "A shadcn-compatible animated arrow back icon powered by Motion.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "src/icons/arrow-back-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/arrow-back-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}

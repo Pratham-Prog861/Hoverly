@@ -63,7 +63,7 @@ export default function IconCard({ icon }: IconCardProps) {
               <button
                 type="button"
                 onClick={handleCopy}
-                className="rounded-lg border border-border/70 bg-background/70 p-1.5 text-foreground/40 transition-all hover:border-border hover:bg-background hover:text-foreground dark:border-white/5 dark:bg-white/2 dark:text-white/3 dark:hover:border-white/10 dark:hover:bg-white/4 dark:hover:text-white"
+                className="rounded-lg border border-border/70 bg-background/70 p-1.5 text-foreground/40 transition-all hover:border-border hover:bg-background hover:text-foreground dark:border-white/5 dark:bg-white/2 dark:text-white dark:hover:border-white/10 dark:hover:bg-white/4 dark:hover:text-white"
               >
                 {copied ? (
                   <Copy className="size-3.5 text-emerald-400" />

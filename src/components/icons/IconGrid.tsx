@@ -70,11 +70,11 @@ export default function IconGrid({ icons, initialQuery = "" }: IconGridProps) {
           ))}
         </motion.div>
       ) : (
-        <div className="rounded-2xl border border-border/70 bg-card/75 p-12 text-center dark:border-white/[0.04] dark:bg-white/[0.01]">
-          <p className="text-sm text-foreground/60 dark:text-white/[0.3]">
+        <div className="rounded-2xl border border-border/70 bg-card/75 p-12 text-center dark:border-white/4 dark:bg-white/1">
+          <p className="text-sm text-foreground/60 dark:text-white/30">
             No icons matched your search.
           </p>
-          <p className="mt-2 text-xs text-foreground/45 dark:text-white/[0.2]">
+          <p className="mt-2 text-xs text-foreground/45 dark:text-white/20">
             Try adjusting your query.
           </p>
         </div>
