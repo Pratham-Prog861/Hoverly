@@ -150,7 +150,7 @@ export default function CTA() {
                       key={command.label}
                       onClick={() => setActiveCommandIndex(index)}
                       className={[
-                        "rounded-md px-3 py-1.5 text-[11px] font-medium tracking-wide transition-all duration-200 uppercase",
+                        "rounded-md px-3 py-1.5 text-[11px] font-medium tracking-wide transition-all duration-200",
                         index === activeCommandIndex
                           ? "bg-foreground text-background dark:bg-white dark:text-black"
                           : "text-foreground/45 hover:text-foreground/75 hover:bg-black/6 dark:text-white/35 dark:hover:text-white/60 dark:hover:bg-white/60",

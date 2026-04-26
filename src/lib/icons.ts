@@ -512,7 +512,7 @@ export const hoverlyIcons: HoverlyIconRecord[] = [
     registryUrl: alignCenterRegistryUrl,
     cliCommands: [
       {
-        label: "npx",
+        label: "npm",
         command: `npx shadcn@latest add ${alignCenterRegistryUrl}`,
       },
       {
@@ -542,7 +542,7 @@ export const hoverlyIcons: HoverlyIconRecord[] = [
     registryUrl: arrowBackRegistryUrl,
     cliCommands: [
       {
-        label: "npx",
+        label: "npm",
         command: `npx shadcn@latest add ${arrowBackRegistryUrl}`,
       },
       {
@@ -656,7 +656,7 @@ BellActiveIcon.displayName = "BellActiveIcon";
     registryUrl: bellActiveRegistryUrl,
     cliCommands: [
       {
-        label: "npx",
+        label: "npm",
         command: `npx shadcn@latest add ${bellActiveRegistryUrl}`,
       },
       {
@@ -686,7 +686,7 @@ BellActiveIcon.displayName = "BellActiveIcon";
     registryUrl: arrowBackUpRegistryUrl,
     cliCommands: [
       {
-        label: "npx",
+        label: "npm",
         command: `npx shadcn@latest add ${arrowBackUpRegistryUrl}`,
       },
       {
@@ -716,7 +716,7 @@ BellActiveIcon.displayName = "BellActiveIcon";
     registryUrl: brandReactNativeRegistryUrl,
     cliCommands: [
       {
-        label: "npx",
+        label: "npm",
         command: `npx shadcn@latest add ${brandReactNativeRegistryUrl}`,
       },
       {
