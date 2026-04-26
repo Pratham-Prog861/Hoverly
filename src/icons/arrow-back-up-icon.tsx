@@ -45,8 +45,6 @@ const ArrowBackUpIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     return (
       <motion.div
         ref={scope}
-        onHoverStart={start}
-        onHoverEnd={stop}
         className={`inline-flex cursor-pointer items-center justify-center ${className}`}
       >
         <svg
@@ -59,6 +57,8 @@ const ArrowBackUpIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           strokeLinejoin="round"
+          onMouseEnter={start}
+          onMouseLeave={stop}
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
 

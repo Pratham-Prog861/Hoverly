@@ -14,15 +14,12 @@ function getCommand(manager: PackageManager, registryUrl: string) {
   if (manager === "npm") {
     return `npx shadcn@latest add ${registryUrl}`;
   }
-
   if (manager === "pnpm") {
     return `pnpm dlx shadcn@latest add ${registryUrl}`;
   }
-
   if (manager === "yarn") {
     return `yarn shadcn@latest add ${registryUrl}`;
   }
-
   return `bunx --bun shadcn@latest add ${registryUrl}`;
 }
 
@@ -37,21 +34,20 @@ export default function InstallCommandCard({
   );
 
   return (
-    <div className="surface-card w-full overflow-hidden rounded-3xl">
-      <div className="flex items-center justify-between border-b border-border/70 px-4 py-3 dark:border-white/8 sm:px-5">
-        <div className="flex items-center gap-1.5 text-sm font-semibold text-foreground/60 dark:text-white/45">
+    <div className="w-full overflow-hidden rounded-xl border bg-background shadow-2xl dark:border-white/10 dark:bg-black/40">
+      <div className="flex items-center justify-between border-b border-foreground/10 px-4 py-2 dark:border-white/10">
+        <div className="flex items-center gap-1">
           {managers.map((manager) => {
             const isActive = manager === activeManager;
-
             return (
               <button
                 key={manager}
                 type="button"
                 onClick={() => setActiveManager(manager)}
-                className={`cursor-pointer rounded-xl px-3 py-1.5 transition-colors ${
+                className={`cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                   isActive
-                    ? "border border-border bg-card text-foreground dark:border-white/12 dark:bg-white/10 dark:text-white"
-                    : "border border-transparent text-foreground/60 hover:bg-muted/60 hover:text-foreground dark:text-white/45 dark:hover:bg-white/6 dark:hover:text-white/80"
+                    ? "bg-foreground/10 text-foreground dark:bg-white/10 dark:text-white"
+                    : "text-foreground/50 hover:bg-foreground/5 hover:text-foreground/80 dark:text-white/40 dark:hover:bg-white/5 dark:hover:text-white/60"
                 }`}
                 aria-pressed={isActive}
               >
@@ -60,19 +56,17 @@ export default function InstallCommandCard({
             );
           })}
         </div>
-
-        <div className="flex items-center gap-2">
-          <span className="size-2.5 rounded-full bg-[#8a2b34]" />
-          <span className="size-2.5 rounded-full bg-[#8a6c18]" />
-          <span className="size-2.5 rounded-full bg-[#1f6a3d]" />
+        <div className="flex items-center gap-1.5">
+          <span className="size-2.5 rounded-full bg-red-500/40" />
+          <span className="size-2.5 rounded-full bg-yellow-500/40" />
+          <span className="size-2.5 rounded-full bg-green-500/40" />
         </div>
       </div>
-
-      <pre className="px-4 py-4 text-left font-mono text-sm leading-relaxed text-foreground/90 whitespace-pre-wrap wrap-break-word dark:text-white/85 sm:px-5 sm:text-base">
-        <code>
+      <div className="group relative p-4">
+        <pre className="text-left font-mono text-base text-foreground dark:text-white/80 whitespace-pre-wrap break-all">
           <span className="text-(--color-highlight)">$</span> {installCommand}
-        </code>
-      </pre>
+        </pre>
+      </div>
     </div>
   );
 }

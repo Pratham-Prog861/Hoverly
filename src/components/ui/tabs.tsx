@@ -59,15 +59,15 @@ export function TabsTrigger({ value, children, className }: TabsTriggerProps) {
   const { activeTab, setActiveTab } = useTabsContext();
   const isActive = activeTab === value;
 
+  const baseClasses = "relative px-4 py-2.5 text-sm font-medium transition-colors border-b-2";
+  const activeClasses = "border-[var(--color-highlight)] text-foreground dark:text-white";
+  const inactiveClasses = "border-transparent text-foreground/50 hover:text-foreground dark:text-white/40 dark:hover:text-white";
+
   return (
     <button
       type="button"
       onClick={() => setActiveTab(value)}
-      className={`relative px-4 py-2.5 text-sm font-medium transition-colors ${
-        isActive
-          ? "text-foreground border-b-2 border-[var(--color-highlight)] dark:text-white"
-          : "text-foreground/50 hover:text-foreground dark:text-white/[0.4] dark:hover:text-white"
-      } ${className}`}
+      className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses} ${className || ""}`}
     >
       {children}
     </button>

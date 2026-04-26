@@ -42,39 +42,39 @@ export default function IconGrid({ icons, initialQuery = "" }: IconGridProps) {
   }, []);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       <motion.div
-        initial={{ opacity: 0, y: 8 }}
+        initial={{ opacity: 0, y: 4 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.3 }}
       >
         <SearchBar value={query} onChange={setQuery} inputRef={inputRef} />
       </motion.div>
 
       {filteredItems.length > 0 ? (
         <motion.div
-          className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+          className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
         >
           {filteredItems.map((icon, index) => (
             <motion.div
               key={icon.slug}
-              initial={{ opacity: 0, y: 8 }}
+              initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.03 }}
+              transition={{ duration: 0.25, delay: index * 0.02 }}
             >
               <IconCard icon={icon} />
             </motion.div>
           ))}
         </motion.div>
       ) : (
-        <div className="rounded-2xl border border-border/70 bg-card/75 p-12 text-center dark:border-white/4 dark:bg-white/1">
-          <p className="text-sm text-foreground/60 dark:text-white/30">
+        <div className="rounded-xl border border-border/40 bg-card/50 p-10 text-center dark:border-white/5 dark:bg-white/2">
+          <p className="text-sm text-foreground/50 dark:text-white/40">
             No icons matched your search.
           </p>
-          <p className="mt-2 text-xs text-foreground/45 dark:text-white/20">
+          <p className="mt-1.5 text-xs text-foreground/40 dark:text-white/25">
             Try adjusting your query.
           </p>
         </div>

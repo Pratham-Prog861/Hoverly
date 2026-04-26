@@ -26,15 +26,11 @@ export default function RootLayout({
       className="h-full font-sans antialiased"
       suppressHydrationWarning
     >
-      <body className="min-h-full overflow-x-hidden bg-background text-foreground">
+      <body className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="relative flex min-h-screen flex-col">
-            <div className="hero-grid pointer-events-none absolute inset-0" />
-            <div className="hero-glow pointer-events-none absolute left-1/2 top-0 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
-            <CommandMenu />
-            <div className="relative flex min-h-screen flex-col">
-              {children}
-            </div>
+          <CommandMenu />
+          <div className="relative flex flex-1 flex-col">
+            {children}
           </div>
         </ThemeProvider>
       </body>

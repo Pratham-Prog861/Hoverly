@@ -45,8 +45,8 @@ export const BellActiveIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onMouseEnter={startAnimation}
+        onMouseLeave={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}

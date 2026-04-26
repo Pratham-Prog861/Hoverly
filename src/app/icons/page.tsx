@@ -21,51 +21,72 @@ export default async function IconsPage({ searchParams }: PageProps<"/icons">) {
     <>
       <Navbar />
       <main className="flex-1">
-        <Section className="relative overflow-hidden pb-14 pt-20 sm:pt-28">
-          <div className="hero-grid pointer-events-none absolute inset-0 opacity-70" />
-          <div className="hero-glow pointer-events-none absolute -top-28 left-[-8%] h-96 w-96 opacity-60" />
+        <Section className="pb-14 pt-16 sm:pt-20">
           <Container className="relative">
-            <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
-              <div className="max-w-3xl text-left">
-                <p className="text-xs font-semibold tracking-[0.24em] text-(--color-highlight) uppercase">
-                  Icon catalog
-                </p>
-
-                <h1 className="mt-4 max-w-3xl font-heading text-4xl leading-[1.08] font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl dark:text-white">
-                  Static icons{" "}
-                  <span className="text-(--color-highlight)">feel alive</span>{" "}
-                  now
+            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+              <div className="flex w-full flex-col items-start text-left">
+                <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl dark:text-white">
+                  Static Icons{" "}
+                  <span className="bg-linear-to-r from-(--color-highlight) via-(--color-highlight)/80 to-(--color-highlight)/60 bg-clip-text text-transparent">
+                    feel dead now
+                  </span>
                 </h1>
 
-                <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/65 dark:text-white/45 sm:text-lg">
+                <p className="mb-4 max-w-xl text-xl leading-relaxed text-foreground/60 dark:text-white/50">
                   A collection of smooth, high-quality animated icons for your
                   next project. Copy and paste directly into your app.
                 </p>
 
-                <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-foreground/55 dark:text-white/40 sm:text-base">
-                  <span>works seamlessly with</span>
-                  <span className="font-semibold text-(--color-highlight)">
+                <span className="mb-6 text-base text-foreground/50 dark:text-white/40">
+                  works seamlessly with{" "}
+                  <a
+                    target="_blank"
+                    href="https://ui.shadcn.com/"
+                    className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-base font-medium text-(--color-highlight) transition-all hover:underline"
+                  >
                     shadcn
-                  </span>
-                  <span>via cli</span>
-                </div>
+                  </a>
+                  via cli
+                </span>
 
-                <div className="mt-4 flex items-center gap-3 text-sm text-foreground/55 dark:text-white/40 sm:text-base">
-                  <span>crafted with care and</span>
-                  <span className="rounded-xl border border-border/75 bg-card/80 px-3 py-1.5 font-medium text-(--color-highlight) dark:border-white/12 dark:bg-white/6">
-                    motion -&gt;
+                <div className="flex items-center gap-3">
+                  <span className="text-base text-foreground/50 dark:text-white/40">
+                    Crafted with care and
                   </span>
+                  <a
+                    target="_blank"
+                    href="https://motion.dev/"
+                    className="group inline-flex items-center gap-1.5 rounded-lg bg-(--color-highlight)/10 px-3 py-1.5 text-base font-medium text-(--color-highlight) transition-all hover:bg-(--color-highlight)/20"
+                  >
+                    motion
+                    <svg
+                      className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </a>
                 </div>
               </div>
 
-              <div className="pt-16 lg:pt-24">
-                <InstallCommandCard registryUrl={registryUrl} />
+              <div className="flex w-full justify-center lg:justify-end">
+                <div className="relative w-full max-w-2xl">
+                  <div className="absolute inset-0 -z-10 translate-y-4 scale-95 rounded-2xl bg-linear-to-br from-(--color-highlight)/20 via-(--color-highlight)/10 to-transparent opacity-50 blur-2xl" />
+                  <InstallCommandCard registryUrl={registryUrl} />
+                </div>
               </div>
             </div>
           </Container>
         </Section>
 
-        <Section className="-mt-14 pt-2 pb-16">
+        <Section className="pb-16">
           <Container>
             <IconGrid icons={hoverlyIcons} initialQuery={initialQuery} />
           </Container>
