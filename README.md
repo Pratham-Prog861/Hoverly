@@ -1,59 +1,109 @@
 # Hoverly
 
-Premium animated icons for modern web interfaces. Engineered for craft-focused teams who care about the details.
+Animated icon library built with React and Motion. Icons designed to move with intent, not decoration.
 
-Hoverly provides a motion-first icon library built for React teams who want editable components, smooth interactions, and a clean install story. Stop using static icons and ship motion natively.
+![Hoverly Product Screenshot](public/product/home_page.png)
 
 ## Features
 
-- **Built in, not bolted on:** Copy-paste components straight into your project.
-- **Full Control:** Tweak the curves, adjust the easing, and own the code. No bloated dependencies.
-- **Registry Ready:** Compatible with modern component registries like shadcn/ui.
-- **Modern Stack:** Built with React, Tailwind CSS, and Framer Motion.
+- **Motion-first design** - Every icon animates on interaction, built with motion/react
+- **React components** - Drop-in components that work with Next.js, shadcn, and modern tooling
+- **Fully customizable** - Copy the source, modify animations, adjust stroke width and colors
+- **Open source** - Community owned
 
-## Getting Started
+## Quick Start
 
-### Using the Icons
-
-You don't need to install Hoverly as an npm package. Instead, grab the icons you need through our registry directly into your codebase.
+### Via CLI
 
 ```bash
-pnpm dlx shadcn@latest add <registry-url>
+npx shadcn@latest add https://hoverly.com/r/[icon-name].json
 ```
 
-_(Browse the library at [hoverly.com](https://hoverly.com) to copy specific installation commands)._
+### Manual Installation
 
-### Local Development
+1. Install dependencies:
 
-If you want to run the Hoverly documentation and library site locally:
+```bash
+npm install motion
+```
 
-1. Clone the repository
-2. Install dependencies:
+2. Copy any icon component from the `src/icons/` directory into your project
 
-   ```bash
-   pnpm install
-   ```
+3. Import and use:
 
-3. Run the development server:
+```tsx
+import GithubIcon from "@/icons/github-icon";
 
-   ```bash
-   pnpm dev
-   ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+export default function Example() {
+  return <GithubIcon className="h-6 w-6" />;
+}
+```
 
 ## Tech Stack
 
-- [Next.js](https://nextjs.org/)
-- [React](https://react.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Motion (Framer Motion)](https://motion.dev/)
-- [Lucide](https://lucide.dev/) (Base vector paths)
+- Next.js 16 (App Router)
+- React 19
+- motion for animations
+- Tailwind CSS 4
+- shadcn/ui components
+- Biome (Linting & Formatting)
+
+## Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start dev server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Check for linting errors
+pnpm lint
+
+# Format code
+pnpm format
+```
+
+## Project Structure
+
+```bash
+hoverly/
+├── src/
+│   ├── app/                    # Next.js App Router pages
+│   ├── components/             # UI components
+│   ├── icons/                  # Animated icon components
+│   └── lib/                    # Utilities
+├── scripts/                    # Build scripts for registry
+├── public/                     # Static assets
+└── registry.json               # shadcn registry configuration
+```
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests with new animated icons or improvements to the site.
+Contributions welcome. Each icon follows this pattern:
+
+1. SVG wrapped in a React component
+2. Animation triggered on hover using motion/react
+3. Exported with ref forwarding for imperative control
+
+Check out our [Contributing Guide](CONTRIBUTING.md) to get started!
+
+## Links
+
+- Website: [hoverly.com](https://hoverly.com) (WIP)
+- GitHub: [github.com/Pratham-Prog861/hoverly](https://github.com/Pratham-Prog861/hoverly)
+
+## Creator
+
+Built by [Pratham-Prog861](https://github.com/Pratham-Prog861)
+
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ## License
 
-[MIT](LICENSE)
+[MIT License](LICENSE)
