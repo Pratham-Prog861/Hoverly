@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "registry:build": "npx tsx scripts/generate-registry.ts"
+    "registry:build": "npx tsx scripts/generate-registry.ts",
+    "registry:r": "npx tsx scripts/generate-r-items.ts",
+    "registry:r:all": "npx tsx scripts/generate-r-items.ts --all"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

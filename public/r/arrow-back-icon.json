@@ -3,8 +3,10 @@
   "name": "arrow-back-icon",
   "type": "registry:component",
   "title": "Arrow Back Icon",
-  "description": "A shadcn-compatible animated arrow back icon powered by Motion.",
-  "dependencies": ["motion"],
+  "description": "A shadcn-compatible animated Arrow Back Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
   "files": [
     {
       "path": "src/icons/arrow-back-icon.tsx",

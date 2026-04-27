@@ -3,8 +3,10 @@
   "name": "align-center-icon",
   "type": "registry:component",
   "title": "Align Center Icon",
-  "description": "A shadcn-compatible animated align center icon powered by Motion.",
-  "dependencies": ["motion"],
+  "description": "A shadcn-compatible animated Align Center Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
   "files": [
     {
       "path": "src/icons/align-center-icon.tsx",

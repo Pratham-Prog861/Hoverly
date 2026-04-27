@@ -3,8 +3,10 @@
   "name": "bell-active-icon",
   "type": "registry:component",
   "title": "Bell Active Icon",
-  "description": "A shadcn-compatible animated bell active icon powered by Motion.",
-  "dependencies": ["motion"],
+  "description": "A shadcn-compatible animated Bell Active Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
   "files": [
     {
       "path": "src/icons/bell-active-icon.tsx",

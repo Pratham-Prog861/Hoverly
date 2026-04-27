@@ -33,12 +33,13 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon_io/apple-touch-icon.png" />
         <link rel="manifest" href="/favicon_io/site.webmanifest" />
       </head>
-      <body className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
+      <body
+        suppressHydrationWarning
+        className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground"
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <CommandMenu />
-          <div className="relative flex flex-1 flex-col">
-            {children}
-          </div>
+          <div className="relative flex flex-1 flex-col">{children}</div>
         </ThemeProvider>
       </body>
     </html>

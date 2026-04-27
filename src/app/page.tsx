@@ -13,7 +13,9 @@ export default function Home() {
         <WhyHoverly />
         <CTA />
       </main>
-      <Footer />
+      <div className="relative -mt-24 md:-mt-16">
+        <Footer />
+      </div>
     </>
   );
 }

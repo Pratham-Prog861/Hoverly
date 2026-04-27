@@ -3,8 +3,10 @@
   "name": "brand-react-native-icon",
   "type": "registry:component",
   "title": "Brand React Native Icon",
-  "description": "A shadcn-compatible animated React Native brand icon powered by Motion.",
-  "dependencies": ["motion"],
+  "description": "A shadcn-compatible animated Brand React Native Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
   "files": [
     {
       "path": "src/icons/brand-react-native-icon.tsx",
