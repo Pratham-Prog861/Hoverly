@@ -152,16 +152,30 @@ function printUsage(): void {
   console.log(
     '  npm run registry:r -- <slug> [sourcePath] ["Title With Spaces"]',
   );
+  console.log(
+    '  pnpm run registry:r -- <slug> [sourcePath] ["Title With Spaces"]',
+  );
   console.log("Examples:");
   console.log("  npm run registry:r -- hashtag-icon");
+  console.log("  pnpm run registry:r -- hashtag-icon");
   console.log(
     '  npm run registry:r -- my-component src/components/my-component.tsx "My Component"',
   );
   console.log("  npm run registry:r:all");
 }
 
+function normalizeArgs(args: string[]): string[] {
+  const normalized = [...args];
+
+  while (normalized[0] === "--") {
+    normalized.shift();
+  }
+
+  return normalized;
+}
+
 function main(): void {
-  const args = process.argv.slice(2);
+  const args = normalizeArgs(process.argv.slice(2));
 
   if (args.length === 1 && args[0] === "--all") {
     generateAllIcons();

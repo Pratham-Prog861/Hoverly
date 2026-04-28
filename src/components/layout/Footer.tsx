@@ -13,8 +13,11 @@ import LinkedinIcon from "@/icons/linkedin-icon";
 import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
 import WhatsappIcon from "@/icons/whatsapp-icon";
 import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
+import GithubIcon from "@/icons/github-icon";
+import TwitterXIcon from "@/icons/twitter-x-icon";
 
 const githubUrl = "https://github.com/pratham-prog861/hoverly";
+const xUrl = "https://x.com/prathamCodesDev";
 
 const footerIcons = [
   { id: "1", Icon: AlignCenterIcon },
@@ -24,9 +27,9 @@ const footerIcons = [
   { id: "5", Icon: LinkedinIcon },
   { id: "6", Icon: ArrowBackUpIcon },
   { id: "7", Icon: BrandReactNativeIcon },
-  { id: "8", Icon: AlignCenterIcon },
+  { id: "8", Icon: GithubIcon },
   { id: "9", Icon: WhatsappIcon },
-  { id: "10", Icon: BellActiveIcon },
+  { id: "10", Icon: TwitterXIcon },
 ];
 
 export default function Footer() {
@@ -58,6 +61,15 @@ export default function Footer() {
               className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card/50 px-3 py-1.5 text-xs text-foreground/60 transition hover:border-border hover:bg-card hover:text-foreground dark:border-white/6 dark:bg-white/3 dark:text-white/50 dark:hover:border-white/12 dark:hover:bg-white/6 dark:hover:text-white"
             >
               GitHub
+              <ArrowUpRight className="size-3" />
+            </Link>
+            <Link
+              href={xUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex ml-2 items-center gap-1.5 rounded-lg border border-border/40 bg-card/50 px-3 py-1.5 text-xs text-foreground/60 transition hover:border-border hover:bg-card hover:text-foreground dark:border-white/6 dark:bg-white/3 dark:text-white/50 dark:hover:border-white/12 dark:hover:bg-white/6 dark:hover:text-white"
+            >
+              X
               <ArrowUpRight className="size-3" />
             </Link>
           </div>
@@ -105,9 +117,51 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-border/30 pt-5 text-xs text-foreground/40 dark:border-white/5 dark:text-white/30 md:flex-row md:items-center md:justify-between">
-          <p>Built for React teams who care about motion.</p>
-          <span>Built with Next.js</span>
+         <div className="border-t pt-4">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-muted-foreground text-center text-sm md:text-left">
+              Built by{" "}
+              <Link
+                href={githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-foreground font-medium underline underline-offset-4 transition-colors"
+              >
+                Pratham
+              </Link>
+              . The source code is available on{" "}
+              <Link
+                href={githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-foreground font-medium underline underline-offset-4 transition-colors"
+              >
+                GitHub
+              </Link>
+              .
+            </p>
+
+            <div className="flex items-center gap-4">
+              <Link
+                href={githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="GitHub"
+              >
+                <GithubIcon size={20} />
+              </Link>
+              <Link
+                href={xUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Twitter"
+              >
+                <TwitterXIcon size={20} />
+              </Link>
+            </div>
+          </div>
         </div>
       </Container>
     </footer>

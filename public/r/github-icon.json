@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "github-icon",
+  "type": "registry:component",
+  "title": "Github Icon",
+  "description": "A shadcn-compatible animated Github Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/github-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/github-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}

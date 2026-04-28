@@ -1,7 +1,7 @@
 "use client";
 
 import { Command } from "cmdk";
-import { Search } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { Dialog } from "radix-ui";
@@ -12,6 +12,15 @@ export default function CommandMenu() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
+
+  const closeMenu = () => {
+    setOpen(false);
+    setSearch("");
+  };
+
+  const openExternalUrl = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   useEffect(() => {
     const down = (event: KeyboardEvent) => {
@@ -25,22 +34,20 @@ export default function CommandMenu() {
     return () => window.removeEventListener("keydown", down);
   }, []);
 
-  const navigationItems = useMemo(
+  const socialItems = useMemo(
     () => [
       {
-        id: "home",
-        label: "Home",
-        description: "Go to the landing page",
-        onSelect: () => router.push("/"),
+        id: "github",
+        label: "GitHub",
+        href: "https://github.com/Pratham-Prog861",
       },
       {
-        id: "icons",
-        label: "Browse icons",
-        description: "Open the full icon catalog",
-        onSelect: () => router.push("/icons"),
+        id: "x",
+        label: "X",
+        href: "https://x.com/prathamCodesDev",
       },
     ],
-    [router],
+    [],
   );
 
   const iconItems = useMemo(
@@ -83,22 +90,21 @@ export default function CommandMenu() {
           No results found.
         </Command.Empty>
 
-        <Command.Group heading="Navigate" className="mb-2">
-          {navigationItems.map((item) => (
+        <Command.Group heading="Socials" className="mb-2">
+          {socialItems.map((item) => (
             <Command.Item
               key={item.id}
               value={item.label}
               onSelect={() => {
-                item.onSelect();
-                setOpen(false);
-                setSearch("");
+                openExternalUrl(item.href);
+                closeMenu();
               }}
-              className="cursor-pointer rounded-xl px-3 py-3 text-white outline-none transition data-[selected=true]:bg-white/8"
+              className="cursor-pointer rounded-xl px-3 py-3 text-sm font-medium text-white outline-none transition data-[selected=true]:bg-white/8"
             >
-              <div>
-                <div className="text-sm font-medium">{item.label}</div>
-                <div className="text-xs text-white/45">{item.description}</div>
-              </div>
+              <span className="flex items-center gap-2">
+                <ArrowRight className="size-4 shrink-0 text-white/45" />
+                {item.label}
+              </span>
             </Command.Item>
           ))}
         </Command.Group>
@@ -110,15 +116,14 @@ export default function CommandMenu() {
               value={`${item.label} ${item.id}`}
               onSelect={() => {
                 item.onSelect();
-                setOpen(false);
-                setSearch("");
+                closeMenu();
               }}
-              className="cursor-pointer rounded-xl px-3 py-3 text-white outline-none transition data-[selected=true]:bg-white/8"
+              className="cursor-pointer rounded-xl px-3 py-3 text-sm font-medium text-white outline-none transition data-[selected=true]:bg-white/8"
             >
-              <div>
-                <div className="text-sm font-medium">{item.label}</div>
-                <div className="text-xs text-white/45">{item.description}</div>
-              </div>
+              <span className="flex items-center gap-2">
+                <ArrowRight className="size-4 shrink-0 text-white/45" />
+                {item.label}
+              </span>
             </Command.Item>
           ))}
         </Command.Group>

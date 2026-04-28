@@ -11,23 +11,25 @@ import ArrowBackIcon from "@/icons/arrow-back-icon";
 import HashtagIcon from "@/icons/hashtag-icon";
 import { BellActiveIcon } from "@/icons/bell-active-icon";
 import LinkedinIcon from "@/icons/linkedin-icon";
+import WhatsappIcon from "@/icons/whatsapp-icon";
+import GithubBadge from "../ui/github-badge";
 
 const icons = [
   {
     Icon: AlignCenterIcon,
-    position: "left-[3%] top-24",
+    position: "left-[3%] top-35",
     size: 120,
     key: "align",
   },
   {
     Icon: ArrowBackIcon,
-    position: "left-[15%] top-40",
+    position: "left-[15%] top-20",
     size: 100,
     key: "arrowback",
   },
   {
     Icon: HashtagIcon,
-    position: "right-[12%] top-28",
+    position: "right-[12%] top-20",
     size: 110,
     key: "hashtag",
   },
@@ -39,14 +41,14 @@ const icons = [
   },
   {
     Icon: LinkedinIcon,
-    position: "left-[8%] bottom-32",
-    size: 80,
+    position: "left-[8%] bottom-10",
+    size: 90,
     key: "linkedin",
   },
   {
-    Icon: HashtagIcon,
+    Icon: WhatsappIcon,
     position: "right-[18%] bottom-20",
-    size: 70,
+    size: 80,
     key: "hashtag2",
   },
 ];
@@ -90,17 +92,9 @@ export default function Hero() {
       </div>
 
       <Container className="relative z-10 flex flex-col items-center">
-        <motion.div
-          variants={textAnimation}
-          initial="initial"
-          animate="animate"
-          transition={textAnimation.transition}
-          className="mb-6 flex flex-col items-center gap-3"
-        >
-          <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-card/60 px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-foreground/70 uppercase dark:border-white/8 dark:bg-white/4 dark:text-white/60">
-            We're Proudly Open Source
-          </span>
-        </motion.div>
+        <div className="mb-6 flex flex-col items-center gap-3">
+          <GithubBadge />
+        </div>
 
         <div className="z-10 max-w-3xl space-y-4 px-6">
           <motion.h1

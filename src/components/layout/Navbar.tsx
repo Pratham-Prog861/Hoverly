@@ -1,10 +1,23 @@
+"use client";
+
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/Container";
-import { ThemeToggleButton2 } from "../ui/skiper-ui/skiper4";
+import { motion } from "motion/react";
 import { ThemeToggleButton } from "../ui/skiper-ui/skiper26";
+import SearchBar from "../icons/SearchBar";
+import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
+
+  const handleSearchChange = (value: string) => {
+    if (value.trim()) {
+      router.push(`/icons?q=${encodeURIComponent(value)}`);
+    }
+  };
+
   return (
     <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl">
       <Container className="flex h-16 items-center justify-between gap-4">
@@ -31,6 +44,17 @@ export default function Navbar() {
           >
             Icons
           </Link>
+          <motion.div
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <SearchBar
+              value=""
+              onChange={handleSearchChange}
+              inputRef={inputRef}
+            />
+          </motion.div>
           <ThemeToggleButton variant="circle" start="top-left" blur={true} />
         </nav>
       </Container>
