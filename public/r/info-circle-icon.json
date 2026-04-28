@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "info-circle-icon",
+  "type": "registry:component",
+  "title": "Info Circle Icon",
+  "description": "A shadcn-compatible animated Info Circle Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/info-circle-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/info-circle-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}

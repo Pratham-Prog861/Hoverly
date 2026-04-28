@@ -157,6 +157,25 @@
       ]
     },
     {
+      "name": "InfoCircleIcon",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "src/icons/info-circle-icon.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/icons/types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "LinkedinIcon",
       "type": "registry:ui",
       "registryDependencies": [],
