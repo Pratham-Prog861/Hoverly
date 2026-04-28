@@ -5,8 +5,8 @@ import { Container } from "@/components/ui/Container";
 import { motion } from "motion/react";
 import { ThemeToggleButton } from "../ui/skiper-ui/skiper26";
 import SearchBar from "../icons/SearchBar";
-import { useRef } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 import GithubIcon from "@/icons/github-icon";
 import TwitterXIcon from "@/icons/twitter-x-icon";
 
@@ -14,13 +14,59 @@ const githubUrl = "https://github.com/pratham-prog861/hoverly";
 const xUrl = "https://x.com/prathamCodesDev";
 
 export default function Navbar() {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const pathname = usePathname();
   const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [searchValue, setSearchValue] = useState("");
+
+  const isIcons = useMemo(
+    () => pathname === "/icons" || pathname?.startsWith("/icons/"),
+    [pathname],
+  );
+
+  const isHome = useMemo(() => pathname === "/", [pathname]);
+
+  const shouldShowSearch = useMemo(() => isHome || isIcons, [isHome, isIcons]);
+
+  useEffect(() => {
+    if (!isIcons) return;
+
+    const syncFromLocation = () => {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get("q") ?? "";
+      setSearchValue(q);
+    };
+
+    syncFromLocation();
+    window.addEventListener("popstate", syncFromLocation);
+    return () => window.removeEventListener("popstate", syncFromLocation);
+  }, [isIcons]);
+
+  const submitSearch = (value: string) => {
+    const trimmed = value.trim();
+    if (!trimmed) return;
+
+    if (isHome) {
+      router.push(`/icons?q=${encodeURIComponent(trimmed)}`);
+      return;
+    }
+
+    if (isIcons) {
+      router.replace(`/icons?q=${encodeURIComponent(trimmed)}`);
+    }
+  };
 
   const handleSearchChange = (value: string) => {
-    if (value.trim()) {
-      router.push(`/icons?q=${encodeURIComponent(value)}`);
+    setSearchValue(value);
+    if (!isIcons) return;
+
+    const trimmed = value.trim();
+    if (!trimmed) {
+      router.replace("/icons");
+      return;
     }
+
+    router.replace(`/icons?q=${encodeURIComponent(trimmed)}`);
   };
 
   return (
@@ -63,17 +109,22 @@ export default function Navbar() {
             <TwitterXIcon size={20} />
           </Link>
           <ThemeToggleButton variant="circle" start="top-left" blur={true} />
-          <motion.div
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <SearchBar
-              value=""
-              onChange={handleSearchChange}
-              inputRef={inputRef}
-            />
-          </motion.div>
+          {shouldShowSearch ? (
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <SearchBar
+                value={searchValue}
+                onChange={handleSearchChange}
+                onSubmit={submitSearch}
+                inputRef={inputRef}
+                showShortcut={isIcons}
+                shortcutKey={isIcons ? "K" : "F"}
+              />
+            </motion.div>
+          ) : null}
         </nav>
       </Container>
     </header>

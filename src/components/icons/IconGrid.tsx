@@ -24,13 +24,12 @@ export default function IconGrid({ icons, initialQuery = "" }: IconGridProps) {
 
     if (requestedQuery) {
       setQuery(requestedQuery);
-      inputRef.current?.focus();
     }
   }, [searchParams, setQuery]);
 
   useEffect(() => {
     const down = (event: KeyboardEvent) => {
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "f") {
         event.preventDefault();
         inputRef.current?.focus();
         inputRef.current?.select();
@@ -48,7 +47,12 @@ export default function IconGrid({ icons, initialQuery = "" }: IconGridProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <SearchBar value={query} onChange={setQuery} inputRef={inputRef} />
+        <SearchBar
+          value={query}
+          onChange={setQuery}
+          inputRef={inputRef}
+          shortcutKey="F"
+        />
       </motion.div>
 
       {filteredItems.length > 0 ? (
