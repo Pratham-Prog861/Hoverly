@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "qwen-icon",
+  "type": "registry:component",
+  "title": "Qwen Icon",
+  "description": "A shadcn-compatible animated Qwen Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/qwen-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/qwen-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
