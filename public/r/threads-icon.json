@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "threads-icon",
+  "type": "registry:component",
+  "title": "Threads Icon",
+  "description": "A shadcn-compatible animated Threads Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/threads-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/threads-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
