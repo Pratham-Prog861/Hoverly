@@ -78,7 +78,7 @@ export default function CommandMenu() {
         </div>
       </div>
 
-      <Command.List className="max-h-[420px] overflow-y-auto p-3">
+      <Command.List className="max-h-105 overflow-y-auto p-3">
         <Command.Empty className="px-3 py-8 text-center text-sm text-white/45">
           No results found.
         </Command.Empty>

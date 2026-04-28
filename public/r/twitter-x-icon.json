@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "twitter-x-icon",
+  "type": "registry:component",
+  "title": "Twitter X Icon",
+  "description": "A shadcn-compatible animated Twitter X Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/twitter-x-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/twitter-x-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}

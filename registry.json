@@ -138,6 +138,25 @@
       ]
     },
     {
+      "name": "TwitterXIcon",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "src/icons/twitter-x-icon.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/icons/types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "WhatsappIcon",
       "type": "registry:ui",
       "registryDependencies": [],

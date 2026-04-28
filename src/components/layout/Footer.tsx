@@ -10,6 +10,9 @@ import ArrowBackIcon from "@/icons/arrow-back-icon";
 import HashtagIcon from "@/icons/hashtag-icon";
 import { BellActiveIcon } from "@/icons/bell-active-icon";
 import LinkedinIcon from "@/icons/linkedin-icon";
+import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
+import WhatsappIcon from "@/icons/whatsapp-icon";
+import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
 
 const githubUrl = "https://github.com/pratham-prog861/hoverly";
 
@@ -19,10 +22,10 @@ const footerIcons = [
   { id: "3", Icon: HashtagIcon },
   { id: "4", Icon: BellActiveIcon },
   { id: "5", Icon: LinkedinIcon },
-  { id: "6", Icon: HashtagIcon },
-  { id: "7", Icon: LinkedinIcon },
+  { id: "6", Icon: ArrowBackUpIcon },
+  { id: "7", Icon: BrandReactNativeIcon },
   { id: "8", Icon: AlignCenterIcon },
-  { id: "9", Icon: ArrowBackIcon },
+  { id: "9", Icon: WhatsappIcon },
   { id: "10", Icon: BellActiveIcon },
 ];
 
