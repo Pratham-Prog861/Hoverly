@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "openai-icon",
+  "type": "registry:component",
+  "title": "Openai Icon",
+  "description": "A shadcn-compatible animated Openai Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/openai-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/openai-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}

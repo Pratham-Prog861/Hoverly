@@ -6,6 +6,7 @@ import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
 import GithubIcon from "@/icons/github-icon";
 import HashtagIcon from "@/icons/hashtag-icon";
 import LinkedinIcon from "@/icons/linkedin-icon";
+import OpenaiIcon from "@/icons/openai-icon";
 import WhatsappIcon from "@/icons/whatsapp-icon";
 import TwitterXIcon from "@/icons/twitter-x-icon";
 import type {
@@ -23,6 +24,7 @@ const brandReactNativeRegistryUrl =
 const githubRegistryUrl = "https://hoverly.com/r/github-icon.json";
 const hashtagRegistryUrl = "https://hoverly.com/r/hashtag-icon.json";
 const linkedinRegistryUrl = "https://hoverly.com/r/linkedin-icon.json";
+const openaiRegistryUrl = "https://hoverly.com/r/openai-icon.json";
 const whatsappRegistryUrl = "https://hoverly.com/r/whatsapp-icon.json";
 const twitterXRegistryUrl = "https://hoverly.com/r/twitter-x-icon.json";
 
@@ -127,6 +129,98 @@ const LinkedinIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
 
 LinkedinIcon.displayName = "LinkedinIcon";
 export default LinkedinIcon;
+`;
+
+const openaiIconSource = `"use client";
+
+import { forwardRef, useImperativeHandle, useCallback } from "react";
+import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
+import { motion, useAnimate } from "motion/react";
+
+const PATHS = [
+  "M11.217 19.384a3.501 3.501 0 0 0 6.783 -1.217v-5.167l-6 -3.35",
+  "M5.214 15.014a3.501 3.501 0 0 0 4.446 5.266l4.34 -2.534v-6.946",
+  "M6 7.63c-1.391 -.236 -2.787 .395 -3.534 1.689a3.474 3.474 0 0 0 1.271 4.745l4.263 2.514l6 -3.348",
+  "M12.783 4.616a3.501 3.501 0 0 0 -6.783 1.217v5.067l6 3.45",
+  "M18.786 8.986a3.501 3.501 0 0 0 -4.446 -5.266l-4.34 2.534v6.946",
+  "M18 16.302c1.391 .236 2.787 -.395 3.534 -1.689a3.474 3.474 0 0 0 -1.271 -4.745l-4.308 -2.514l-5.955 3.42",
+];
+
+const STAGGER_DELAY = 0.07;
+const DRAW_DURATION = 0.35;
+
+const BrandOpenaiIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+  (
+    { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
+    ref,
+  ) => {
+    const [scope, animate] = useAnimate();
+
+    const start = useCallback(async () => {
+      await animate(
+        ".arc",
+        { pathLength: 0, opacity: 0 },
+        { duration: 0 },
+      );
+
+      PATHS.forEach((_, i) => {
+        animate(
+          \`.arc-\${i}\`,
+          { pathLength: [0, 1], opacity: [0, 1] },
+          {
+            duration: DRAW_DURATION,
+            ease: "easeOut",
+            delay: i * STAGGER_DELAY,
+          },
+        );
+      });
+    }, [animate]);
+
+    const stop = useCallback(() => {
+      animate(
+        ".arc",
+        { pathLength: 1, opacity: 1 },
+        { duration: 0.25, ease: "easeInOut" },
+      );
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
+
+    return (
+      <motion.svg
+        ref={scope}
+        onHoverStart={start}
+        onHoverEnd={stop}
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={color}
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={\`cursor-pointer select-none \${className}\`}
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        {PATHS.map((d, i) => (
+          <motion.path
+            key={i}
+            d={d}
+            className={\`arc arc-\${i}\`}
+            initial={{ pathLength: 1, opacity: 1 }}
+          />
+        ))}
+      </motion.svg>
+    );
+  },
+);
+
+BrandOpenaiIcon.displayName = "BrandOpenaiIcon";
+export default BrandOpenaiIcon;
 `;
 
 const githubIconSource = `"use client";
@@ -1282,6 +1376,36 @@ BellActiveIcon.displayName = "BellActiveIcon";
     ],
   },
   {
+    slug: "openai-icon",
+    name: "OpenAI Icon",
+    category: "Social",
+    description:
+      "An OpenAI brand mark with staggered arc drawing motion for AI and technology touchpoints.",
+    tags: ["openai", "social", "brand", "logo", "ai", "tech"],
+    componentName: "OpenaiIcon",
+    importPath: "@/icons/openai-icon",
+    sourceCode: openaiIconSource,
+    registryUrl: openaiRegistryUrl,
+    cliCommands: [
+      {
+        label: "npm",
+        command: `npx shadcn@latest add ${openaiRegistryUrl}`,
+      },
+      {
+        label: "pnpm",
+        command: `pnpm dlx shadcn@latest add ${openaiRegistryUrl}`,
+      },
+      {
+        label: "yarn",
+        command: `yarn shadcn@latest add ${openaiRegistryUrl}`,
+      },
+      {
+        label: "bun",
+        command: `bunx --bun shadcn@latest add ${openaiRegistryUrl}`,
+      },
+    ],
+  },
+  {
     slug: "whatsapp-icon",
     name: "Whatsapp Icon",
     category: "Social",
@@ -1352,6 +1476,7 @@ export const hoverlyIconComponents: Record<string, HoverlyIconComponent> = {
   "github-icon": GithubIcon,
   "hashtag-icon": HashtagIcon,
   "linkedin-icon": LinkedinIcon,
+  "openai-icon": OpenaiIcon,
   "whatsapp-icon": WhatsappIcon,
   "twitter-x-icon": TwitterXIcon,
 };

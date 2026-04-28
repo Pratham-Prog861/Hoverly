@@ -48,7 +48,7 @@ export default function IconCard({ icon }: IconCardProps) {
               <div className="flex cursor-pointer items-center justify-center">
                 <PreviewIcon
                   size={56}
-                  className="text-foreground/70 transition-colors hover:text-foreground dark:text-white/60 dark:hover:text-white"
+                  className="text-foreground/90 transition-colors hover:text-foreground dark:text-white/90 dark:hover:text-white"
                 />
               </div>
             </Link>
