@@ -100,6 +100,25 @@
       ]
     },
     {
+      "name": "GithubCopilotIcon",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "src/icons/github-copilot-icon.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/icons/types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "GithubIcon",
       "type": "registry:ui",
       "registryDependencies": [],

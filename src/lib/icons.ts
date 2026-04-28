@@ -3,6 +3,7 @@ import ArrowBackIcon from "@/icons/arrow-back-icon";
 import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
 import { BellActiveIcon } from "@/icons/bell-active-icon";
 import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
+import GithubCopilotIcon from "@/icons/github-copilot-icon";
 import GithubIcon from "@/icons/github-icon";
 import HashtagIcon from "@/icons/hashtag-icon";
 import LinkedinIcon from "@/icons/linkedin-icon";
@@ -25,6 +26,7 @@ const arrowBackUpRegistryUrl = "https://hoverly.com/r/arrow-back-up-icon.json";
 const bellActiveRegistryUrl = "https://hoverly.com/r/bell-active-icon.json";
 const brandReactNativeRegistryUrl =
   "https://hoverly.com/r/brand-react-native-icon.json";
+const githubCopilotRegistryUrl = "https://hoverly.com/r/github-copilot-icon.json";
 const githubRegistryUrl = "https://hoverly.com/r/github-icon.json";
 const hashtagRegistryUrl = "https://hoverly.com/r/hashtag-icon.json";
 const linkedinRegistryUrl = "https://hoverly.com/r/linkedin-icon.json";
@@ -754,6 +756,173 @@ const GithubIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
 
 GithubIcon.displayName = "GithubIcon";
 export default GithubIcon;
+`;
+
+const githubCopilotIconSource = `"use client";
+
+import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import { motion, useAnimate } from "motion/react";
+
+import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
+
+const GithubCopilotIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+  (
+    { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
+    ref,
+  ) => {
+    const [scope, animate] = useAnimate();
+    const isAnimatingRef = useRef(false);
+
+    const start = useCallback(async () => {
+      if (isAnimatingRef.current) return;
+      isAnimatingRef.current = true;
+
+      await animate(
+        ".copilot-outline, .eye-left, .eye-right",
+        { opacity: 0, pathLength: 0, filter: "blur(0.9px)" },
+        { duration: 0 },
+      );
+      await animate(".copilot-group", { scale: 0.985, rotate: 0 }, { duration: 0 });
+
+      await animate(
+        ".copilot-outline",
+        {
+          opacity: [0.15, 1],
+          pathLength: [0, 1],
+          filter: ["blur(0.9px)", "blur(0px)"],
+        },
+        {
+          duration: 0.58,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      );
+
+      await animate(
+        ".eye-left, .eye-right",
+        {
+          opacity: [0, 1],
+          pathLength: [0, 1],
+          filter: ["blur(0.9px)", "blur(0px)"],
+        },
+        { duration: 0.2, ease: "easeOut" },
+      );
+
+      animate(
+        ".copilot-group",
+        { scale: [0.985, 1.02, 1] },
+        { duration: 0.28, ease: "easeOut" },
+      );
+
+      while (isAnimatingRef.current) {
+        await animate(
+          ".eye-left, .eye-right",
+          { scaleY: [1, 0.1, 1] },
+          { duration: 0.16, ease: "easeInOut" },
+        );
+
+        if (!isAnimatingRef.current) break;
+
+        await animate(
+          ".copilot-group",
+          { y: [0, -0.6, 0] },
+          { duration: 0.35, ease: "easeInOut" },
+        );
+
+        await new Promise((resolve) =>
+          setTimeout(resolve, 900 + Math.random() * 1500),
+        );
+      }
+    }, [animate]);
+
+    const stop = useCallback(() => {
+      isAnimatingRef.current = false;
+
+      animate(".copilot-group", { scale: 1, rotate: 0, y: 0 }, { duration: 0.2 });
+      animate(
+        ".copilot-outline, .eye-left, .eye-right",
+        {
+          opacity: 1,
+          pathLength: 1,
+          filter: "blur(0px)",
+        },
+        { duration: 0.2, ease: "easeOut" },
+      );
+      animate(".eye-left, .eye-right", { scaleY: 1 }, { duration: 0.18 });
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
+
+    return (
+      <motion.div
+        ref={scope}
+        className={\`inline-flex cursor-pointer items-center justify-center \${className}\`}
+        onHoverStart={start}
+        onHoverEnd={stop}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={size}
+          height={size}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke={color}
+          strokeWidth={strokeWidth}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ overflow: "visible" }}
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <motion.g className="copilot-group" style={{ transformOrigin: "50% 50%" }}>
+            <motion.path
+              className="copilot-outline"
+              d="M4 18v-5.5c0 -.667 .167 -1.333 .5 -2"
+              initial={{ opacity: 1, pathLength: 1 }}
+            />
+            <motion.path
+              className="copilot-outline"
+              d="M12 7.5c0 -1 -.01 -4.07 -4 -3.5c-3.5 .5 -4 2.5 -4 3.5c0 1.5 0 4 3 4c4 0 5 -2.5 5 -4z"
+              initial={{ opacity: 1, pathLength: 1 }}
+            />
+            <motion.path
+              className="copilot-outline"
+              d="M4 12c-1.333 .667 -2 1.333 -2 2c0 1 0 3 1.5 4c3 2 6.5 3 8.5 3s5.499 -1 8.5 -3c1.5 -1 1.5 -3 1.5 -4c0 -.667 -.667 -1.333 -2 -2"
+              initial={{ opacity: 1, pathLength: 1 }}
+            />
+            <motion.path
+              className="copilot-outline"
+              d="M20 18v-5.5c0 -.667 -.167 -1.333 -.5 -2"
+              initial={{ opacity: 1, pathLength: 1 }}
+            />
+            <motion.path
+              className="copilot-outline"
+              d="M12 7.5l0 -.297l.01 -.269l.027 -.298l.013 -.105l.033 -.215c.014 -.073 .029 -.146 .046 -.22l.06 -.223c.336 -1.118 1.262 -2.237 3.808 -1.873c2.838 .405 3.703 1.797 3.93 2.842l.036 .204c0 .033 .01 .066 .013 .098l.016 .185l0 .171l0 .49l-.015 .394l-.02 .271c-.122 1.366 -.655 2.845 -2.962 2.845c-3.256 0 -4.524 -1.656 -4.883 -3.081l-.053 -.242a3.865 3.865 0 0 1 -.036 -.235l-.021 -.227a3.518 3.518 0 0 1 -.007 -.215z"
+              initial={{ opacity: 1, pathLength: 1 }}
+            />
+            <motion.path
+              className="eye-left"
+              d="M10 15v2"
+              style={{ transformOrigin: "10px 16px" }}
+              initial={{ opacity: 1, pathLength: 1 }}
+            />
+            <motion.path
+              className="eye-right"
+              d="M14 15v2"
+              style={{ transformOrigin: "14px 16px" }}
+              initial={{ opacity: 1, pathLength: 1 }}
+            />
+          </motion.g>
+        </svg>
+      </motion.div>
+    );
+  },
+);
+
+GithubCopilotIcon.displayName = "GithubCopilotIcon";
+
+export default GithubCopilotIcon;
 `;
 
 const hashtagIconSource = `"use client";
@@ -1776,6 +1945,36 @@ BellActiveIcon.displayName = "BellActiveIcon";
     ],
   },
   {
+    slug: "github-copilot-icon",
+    name: "Github Copilot Icon",
+    category: "Social",
+    description:
+      "A GitHub Copilot mark with subtle fade-and-draw reveal, expressive blinking eyes, and gentle hover bob.",
+    tags: ["github", "copilot", "social", "brand", "ai", "developer"],
+    componentName: "GithubCopilotIcon",
+    importPath: "@/icons/github-copilot-icon",
+    sourceCode: githubCopilotIconSource,
+    registryUrl: githubCopilotRegistryUrl,
+    cliCommands: [
+      {
+        label: "npm",
+        command: `npx shadcn@latest add ${githubCopilotRegistryUrl}`,
+      },
+      {
+        label: "pnpm",
+        command: `pnpm dlx shadcn@latest add ${githubCopilotRegistryUrl}`,
+      },
+      {
+        label: "yarn",
+        command: `yarn shadcn@latest add ${githubCopilotRegistryUrl}`,
+      },
+      {
+        label: "bun",
+        command: `bunx --bun shadcn@latest add ${githubCopilotRegistryUrl}`,
+      },
+    ],
+  },
+  {
     slug: "linkedin-icon",
     name: "LinkedIn Icon",
     category: "Social",
@@ -2023,6 +2222,7 @@ export const hoverlyIconComponents: Record<string, HoverlyIconComponent> = {
   "arrow-back-up-icon": ArrowBackUpIcon,
   "bell-active-icon": BellActiveIcon,
   "brand-react-native-icon": BrandReactNativeIcon,
+  "github-copilot-icon": GithubCopilotIcon,
   "github-icon": GithubIcon,
   "hashtag-icon": HashtagIcon,
   "linkedin-icon": LinkedinIcon,

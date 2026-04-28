@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "github-copilot-icon",
+  "type": "registry:component",
+  "title": "Github Copilot Icon",
+  "description": "A shadcn-compatible animated Github Copilot Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/github-copilot-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/github-copilot-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
