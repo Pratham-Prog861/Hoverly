@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "telegram-icon",
+  "type": "registry:component",
+  "title": "Telegram Icon",
+  "description": "A shadcn-compatible animated Telegram Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/telegram-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/telegram-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
