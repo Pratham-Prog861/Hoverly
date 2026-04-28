@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "terminal-icon",
+  "type": "registry:component",
+  "title": "Terminal Icon",
+  "description": "A shadcn-compatible animated Terminal Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/terminal-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/terminal-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
