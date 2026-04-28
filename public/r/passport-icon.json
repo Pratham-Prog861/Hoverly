@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "passport-icon",
+  "type": "registry:component",
+  "title": "Passport Icon",
+  "description": "A shadcn-compatible animated Passport Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/passport-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/passport-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
