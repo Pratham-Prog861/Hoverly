@@ -195,6 +195,25 @@
       ]
     },
     {
+      "name": "TwitchIcon",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "src/icons/twitch-icon.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/icons/types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "TwitterXIcon",
       "type": "registry:ui",
       "registryDependencies": [],

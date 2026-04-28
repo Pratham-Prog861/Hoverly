@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "twitch-icon",
+  "type": "registry:component",
+  "title": "Twitch Icon",
+  "description": "A shadcn-compatible animated Twitch Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/twitch-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/twitch-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}

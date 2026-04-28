@@ -8,6 +8,7 @@ import HashtagIcon from "@/icons/hashtag-icon";
 import LinkedinIcon from "@/icons/linkedin-icon";
 import OpenaiIcon from "@/icons/openai-icon";
 import QwenIcon from "@/icons/qwen-icon";
+import TwitchIcon from "@/icons/twitch-icon";
 import WhatsappIcon from "@/icons/whatsapp-icon";
 import TwitterXIcon from "@/icons/twitter-x-icon";
 import type {
@@ -27,6 +28,7 @@ const hashtagRegistryUrl = "https://hoverly.com/r/hashtag-icon.json";
 const linkedinRegistryUrl = "https://hoverly.com/r/linkedin-icon.json";
 const openaiRegistryUrl = "https://hoverly.com/r/openai-icon.json";
 const qwenRegistryUrl = "https://hoverly.com/r/qwen-icon.json";
+const twitchRegistryUrl = "https://hoverly.com/r/twitch-icon.json";
 const whatsappRegistryUrl = "https://hoverly.com/r/whatsapp-icon.json";
 const twitterXRegistryUrl = "https://hoverly.com/r/twitter-x-icon.json";
 
@@ -330,6 +332,165 @@ const BrandQwenIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
 BrandQwenIcon.displayName = "BrandQwenIcon";
 
 export default BrandQwenIcon;
+`;
+
+const twitchIconSource = `"use client";
+
+import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import { motion, useAnimate } from "motion/react";
+
+import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
+
+const BrandTwitchIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+  (
+    { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
+    ref,
+  ) => {
+    const [scope, animate] = useAnimate();
+    const isAnimatingRef = useRef(false);
+
+    const start = useCallback(async () => {
+      if (isAnimatingRef.current) return;
+      isAnimatingRef.current = true;
+
+      await animate(
+        ".twitch-shell, .twitch-eye",
+        { opacity: 0, pathLength: 0, filter: "blur(0.8px)" },
+        { duration: 0 },
+      );
+      await animate(
+        ".twitch-shell",
+        { x: 0, y: 0, rotate: 0, scale: 1, stroke: color },
+        { duration: 0 },
+      );
+
+      await animate(
+        ".twitch-shell",
+        {
+          opacity: [0.12, 1],
+          pathLength: [0, 1],
+          filter: ["blur(0.8px)", "blur(0px)"],
+          scale: [0.985, 1.02, 1],
+        },
+        {
+          duration: 0.55,
+          ease: [0.22, 1, 0.36, 1],
+          times: [0, 0.55, 1],
+        },
+      );
+
+      await animate(
+        ".twitch-eye",
+        {
+          opacity: [0, 1],
+          pathLength: [0, 1],
+          filter: ["blur(0.8px)", "blur(0px)"],
+        },
+        { duration: 0.22, ease: "easeOut" },
+      );
+
+      animate(
+        ".twitch-shell, .twitch-eye",
+        { stroke: "#9146FF" },
+        { duration: 0.25, ease: "easeOut" },
+      );
+
+      while (isAnimatingRef.current) {
+        await animate(
+          ".twitch-eyes",
+          { scaleY: [1, 0.08, 1] },
+          { duration: 0.12, ease: "easeInOut" },
+        );
+
+        if (!isAnimatingRef.current) break;
+
+        if (Math.random() > 0.68) {
+          await animate(
+            ".twitch-shell",
+            {
+              x: [0, -0.8, 0.8, 0],
+              y: [0, 0.35, -0.35, 0],
+              rotate: [0, -1.2, 1.2, 0],
+            },
+            { duration: 0.16, ease: "linear" },
+          );
+        }
+
+        await new Promise((resolve) =>
+          setTimeout(resolve, 900 + Math.random() * 1700),
+        );
+      }
+    }, [animate, color]);
+
+    const stop = useCallback(async () => {
+      isAnimatingRef.current = false;
+
+      await animate(
+        ".twitch-shell",
+        { x: 0, y: 0, rotate: 0, scale: 1 },
+        { duration: 0.2, ease: "easeOut" },
+      );
+      animate(".twitch-eyes", { scaleY: 1 }, { duration: 0.2, ease: "easeOut" });
+      animate(
+        ".twitch-shell, .twitch-eye",
+        {
+          stroke: color,
+          opacity: 1,
+          pathLength: 1,
+          filter: "blur(0px)",
+        },
+        { duration: 0.22, ease: "easeOut" },
+      );
+    }, [animate, color]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
+
+    return (
+      <motion.svg
+        ref={scope}
+        onHoverStart={start}
+        onHoverEnd={stop}
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={color}
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={\`cursor-pointer select-none \${className}\`}
+        style={{ overflow: "visible" }}
+      >
+        <motion.path
+          className="twitch-shell"
+          d="M21 2H3v16h5v4l4-4h5l4-4V2z"
+          style={{ transformOrigin: "center" }}
+          initial={{ opacity: 1, pathLength: 1 }}
+        />
+        <motion.g className="twitch-eyes" style={{ transformOrigin: "center 9px" }}>
+          <motion.path
+            className="twitch-eye"
+            d="M11 11V7"
+            initial={{ opacity: 1, pathLength: 1 }}
+          />
+          <motion.path
+            className="twitch-eye"
+            d="M16 11V7"
+            initial={{ opacity: 1, pathLength: 1 }}
+          />
+        </motion.g>
+      </motion.svg>
+    );
+  },
+);
+
+BrandTwitchIcon.displayName = "BrandTwitchIcon";
+
+export default BrandTwitchIcon;
 `;
 
 const githubIconSource = `"use client";
@@ -1545,6 +1706,36 @@ BellActiveIcon.displayName = "BellActiveIcon";
     ],
   },
   {
+    slug: "twitch-icon",
+    name: "Twitch Icon",
+    category: "Social",
+    description:
+      "A Twitch brand mark with subtle fade-and-draw reveal, plus playful blink and glitch hover motion.",
+    tags: ["twitch", "social", "brand", "logo", "streaming", "gaming"],
+    componentName: "TwitchIcon",
+    importPath: "@/icons/twitch-icon",
+    sourceCode: twitchIconSource,
+    registryUrl: twitchRegistryUrl,
+    cliCommands: [
+      {
+        label: "npm",
+        command: `npx shadcn@latest add ${twitchRegistryUrl}`,
+      },
+      {
+        label: "pnpm",
+        command: `pnpm dlx shadcn@latest add ${twitchRegistryUrl}`,
+      },
+      {
+        label: "yarn",
+        command: `yarn shadcn@latest add ${twitchRegistryUrl}`,
+      },
+      {
+        label: "bun",
+        command: `bunx --bun shadcn@latest add ${twitchRegistryUrl}`,
+      },
+    ],
+  },
+  {
     slug: "whatsapp-icon",
     name: "Whatsapp Icon",
     category: "Social",
@@ -1617,6 +1808,7 @@ export const hoverlyIconComponents: Record<string, HoverlyIconComponent> = {
   "linkedin-icon": LinkedinIcon,
   "openai-icon": OpenaiIcon,
   "qwen-icon": QwenIcon,
+  "twitch-icon": TwitchIcon,
   "whatsapp-icon": WhatsappIcon,
   "twitter-x-icon": TwitterXIcon,
 };
