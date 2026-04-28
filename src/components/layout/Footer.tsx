@@ -42,7 +42,7 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="Hoverly"
-                className="h-7 w-7 rounded-lg"
+                className="h-8 w-10 rounded-lg"
               />
               <span className="font-heading text-sm font-semibold tracking-[0.16em] text-foreground uppercase dark:text-white">
                 Hoverly

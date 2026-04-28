@@ -25,7 +25,7 @@ export default function Navbar() {
           href="/"
           className="flex items-center gap-2 text-sm font-semibold tracking-wide text-foreground"
         >
-          <img src="/logo.png" alt="Hoverly" className="h-7 w-7 rounded-lg" />
+          <img src="/logo.png" alt="Hoverly" className="h-8 w-10 rounded-lg" />
           <span className="font-heading text-sm tracking-[0.2em] text-foreground dark:text-white">
             Hoverly
           </span>
