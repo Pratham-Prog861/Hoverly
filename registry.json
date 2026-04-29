@@ -81,6 +81,25 @@
       ]
     },
     {
+      "name": "BrainCircuitIcon",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "src/icons/brain-circuit-icon.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/icons/types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "BrandReactNativeIcon",
       "type": "registry:ui",
       "registryDependencies": [],

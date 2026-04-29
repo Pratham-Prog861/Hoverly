@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "brain-circuit-icon",
+  "type": "registry:component",
+  "title": "Brain Circuit Icon",
+  "description": "A shadcn-compatible animated Brain Circuit Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/brain-circuit-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/brain-circuit-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
