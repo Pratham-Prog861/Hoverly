@@ -35,7 +35,7 @@ const footerIcons = [
 export default function Footer() {
   return (
     <footer className="border-t border-border/40 bg-card/30 dark:border-white/5 dark:bg-black/20">
-      <Container className="py-12 pb-2 md:py-14 md:pb-3">
+      <Container className="py-12 pb-2 md:py-5">
         <div className="grid gap-y-10 md:grid-cols-3 md:gap-x-8 pb-2">
           <div className="space-y-5 lg:pr-6">
             <Link href="/" className="inline-flex items-center gap-2">

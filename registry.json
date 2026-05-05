@@ -81,6 +81,25 @@
       ]
     },
     {
+      "name": "ArrowDown01Icon",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "devDependencies": [],
+      "files": [
+        {
+          "path": "src/icons/arrow-down-0-1-icon.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/icons/types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "BellActiveIcon",
       "type": "registry:ui",
       "registryDependencies": [],
