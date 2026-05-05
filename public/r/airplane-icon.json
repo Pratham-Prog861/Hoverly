@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "airplane-icon",
+  "type": "registry:component",
+  "title": "Airplane Icon",
+  "description": "A shadcn-compatible animated Airplane Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/airplane-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/airplane-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
