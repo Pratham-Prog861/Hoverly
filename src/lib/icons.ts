@@ -1,4 +1,5 @@
 import { AlignCenterIcon } from "@/icons/align-center-icon";
+import AmpersandIcon from "@/icons/ampersand-icon";
 import AirplaneIcon from "@/icons/airplane-icon";
 import ArrowDown01Icon from "@/icons/arrow-down-0-1-icon";
 import ArrowBackIcon from "@/icons/arrow-back-icon";
@@ -29,6 +30,7 @@ import type {
 } from "@/icons/types";
 
 const alignCenterRegistryUrl = "https://hoverly.com/r/align-center-icon.json";
+const ampersandRegistryUrl = "https://hoverly.com/r/ampersand-icon.json";
 const airplaneRegistryUrl = "https://hoverly.com/r/airplane-icon.json";
 const arrowDown01RegistryUrl = "https://hoverly.com/r/arrow-down-0-1-icon.json";
 const arrowBackRegistryUrl = "https://hoverly.com/r/arrow-back-icon.json";
@@ -2903,6 +2905,99 @@ export const hoverlyIcons: HoverlyIconRecord[] = [
     ],
   },
   {
+    slug: "ampersand-icon",
+    name: "Ampersand Icon",
+    category: "UI",
+    description:
+      "A crisp ampersand glyph with a simple draw-on hover animation for typography and editor UI.",
+    tags: ["ampersand", "and", "typography", "editor", "ui", "symbol"],
+    componentName: "AmpersandIcon",
+    importPath: "@/icons/ampersand-icon",
+    sourceCode: `"use client";
+
+import { forwardRef, useImperativeHandle } from "react";
+import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
+import { motion, useAnimate } from "motion/react";
+
+const AmpersandIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+  (
+    { size = 40, className = "", color = "currentColor", strokeWidth = "2" },
+    ref,
+  ) => {
+    const [scope, animate] = useAnimate();
+
+    const start = async () => {
+      animate("path", { pathLength: [0, 1] }, { duration: 0.6 });
+    };
+
+    const stop = async () => {
+      animate("path", { pathLength: 1 }, { duration: 0.3 });
+    };
+
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
+
+    return (
+      <motion.svg
+        ref={scope}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        color={color}
+        className={"cursor-pointer " + className}
+      >
+        <path d="M16 12h3" />
+        <path d="M17.5 12a8 8 0 0 1-8 8A4.5 4.5 0 0 1 5 15.5c0-6 8-4 8-8.5a3 3 0 1 0-6 0c0 3 2.5 8.5 12 13" />
+      </motion.svg>
+    );
+  },
+);
+
+AmpersandIcon.displayName = "AmpersandIcon";
+
+export default AmpersandIcon;
+`,
+    registryUrl: ampersandRegistryUrl,
+    cliCommands: [
+      {
+        label: "npm",
+        command: `npx shadcn@latest add ${ampersandRegistryUrl}`,
+      },
+      {
+        label: "pnpm",
+        command: `pnpm dlx shadcn@latest add ${ampersandRegistryUrl}`,
+      },
+      {
+        label: "yarn",
+        command: `yarn shadcn@latest add ${ampersandRegistryUrl}`,
+      },
+      {
+        label: "bun",
+        command: `bunx --bun shadcn@latest add ${ampersandRegistryUrl}`,
+      },
+    ],
+  },
+  {
     slug: "arrow-back-icon",
     name: "Arrow Back Icon",
     category: "Arrows",
@@ -3790,6 +3885,7 @@ export const hoverlyIconComponents: Record<string, HoverlyIconComponent> = {
   "airplane-icon": AirplaneIcon,
   "arrow-down-0-1-icon": ArrowDown01Icon,
   "align-center-icon": AlignCenterIcon,
+  "ampersand-icon": AmpersandIcon,
   "arrow-back-icon": ArrowBackIcon,
   "arrow-back-up-icon": ArrowBackUpIcon,
   "bell-active-icon": BellActiveIcon,

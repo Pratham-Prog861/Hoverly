@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ampersand-icon",
+  "type": "registry:component",
+  "title": "Ampersand Icon",
+  "description": "A shadcn-compatible animated Ampersand Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/ampersand-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/ampersand-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
