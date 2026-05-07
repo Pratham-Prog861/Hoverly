@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notion-icon",
+  "type": "registry:component",
+  "title": "Notion Icon",
+  "description": "A shadcn-compatible animated Notion Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/notion-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/notion-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
