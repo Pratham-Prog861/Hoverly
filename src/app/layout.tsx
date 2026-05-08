@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import CommandMenu from "@/components/layout/CommandMenu";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hoverlyy.vercel.app/"),
   title: {
-    default: "Hoverly",
-    template: "%s | Hoverly",
+    default: "Hoverlyy",
+    template: "%s | Hoverlyy",
   },
   description:
-    "Hoverly is a shadcn-compatible animated icon library for React teams that want premium motion and zero setup friction.",
+    "Hoverlyy is a shadcn-compatible animated icon library for React teams that want premium motion and zero setup friction.",
 };
 
 export default function RootLayout({
@@ -46,6 +47,7 @@ export default function RootLayout({
           <CommandMenu />
           <div className="relative flex flex-1 flex-col">{children}</div>
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
