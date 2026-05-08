@@ -6,6 +6,7 @@ import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
 import ArrowDown01Icon from "@/icons/arrow-down-0-1-icon";
 import AtSignIcon from "@/icons/at-sign-icon";
 import { BellActiveIcon } from "@/icons/bell-active-icon";
+import { BlocksIcon } from "@/icons/blocks-icon";
 import BrainCircuitIcon from "@/icons/brain-circuit-icon";
 import BrandReactNativeIcon from "@/icons/brand-react-native-icon";
 import GithubCopilotIcon from "@/icons/github-copilot-icon";
@@ -39,6 +40,7 @@ const arrowDown01RegistryUrl = "https://hoverly.com/r/arrow-down-0-1-icon.json";
 const arrowBackRegistryUrl = "https://hoverly.com/r/arrow-back-icon.json";
 const arrowBackUpRegistryUrl = "https://hoverly.com/r/arrow-back-up-icon.json";
 const bellActiveRegistryUrl = "https://hoverly.com/r/bell-active-icon.json";
+const blocksRegistryUrl = "https://hoverly.com/r/blocks-icon.json";
 const brainCircuitRegistryUrl = "https://hoverly.com/r/brain-circuit-icon.json";
 const brandReactNativeRegistryUrl =
   "https://hoverly.com/r/brand-react-native-icon.json";
@@ -3382,6 +3384,201 @@ BellActiveIcon.displayName = "BellActiveIcon";
     ],
   },
   {
+    slug: "blocks-icon",
+    name: "Blocks Icon",
+    category: "UI",
+    description:
+      "A playful blocks/grid icon with subtle wobble + draw animation for layout and components UI.",
+    tags: ["blocks", "grid", "layout", "components", "ui"],
+    componentName: "BlocksIcon",
+    importPath: "@/icons/blocks-icon",
+    sourceCode: `"use client";
+
+import { cn } from "@/lib/utils";
+import type { Variants } from "motion/react";
+import {
+ LazyMotion,
+ domMin,
+ m,
+ useAnimation,
+ useReducedMotion,
+} from "motion/react";
+import {
+ forwardRef,
+ useCallback,
+ useImperativeHandle,
+ useRef,
+ type HTMLAttributes,
+} from "react";
+export interface BlocksIconHandle {
+ startAnimation: () => void;
+ stopAnimation: () => void;
+}
+
+interface BlocksIconProps extends Omit<
+ HTMLAttributes<HTMLDivElement>,
+ | "color"
+ | "onDrag"
+ | "onDragStart"
+ | "onDragEnd"
+ | "onAnimationStart"
+ | "onAnimationEnd"
+ | "onAnimationIteration"
+> {
+ size?: number;
+ duration?: number;
+ isAnimated?: boolean;
+ color?: string;
+}
+
+const BlocksIcon = forwardRef<BlocksIconHandle, BlocksIconProps>(
+ (
+  {
+   onMouseEnter,
+   onMouseLeave,
+   className,
+   size = 24,
+   duration = 1,
+   isAnimated = true,
+   color,
+   ...props
+  },
+  ref,
+ ) => {
+  const controls = useAnimation();
+  const reduced = useReducedMotion();
+  const isControlled = useRef(false);
+
+  useImperativeHandle(ref, () => {
+   isControlled.current = true;
+   return {
+    startAnimation: () =>
+     reduced ? controls.start("normal") : controls.start("animate"),
+    stopAnimation: () => controls.start("normal"),
+   };
+  });
+
+  const handleEnter = useCallback(
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isAnimated || reduced) return;
+    if (!isControlled.current) controls.start("animate");
+    else onMouseEnter?.(e as any);
+   },
+   [controls, reduced, isAnimated, onMouseEnter],
+  );
+
+  const handleLeave = useCallback(
+   (e?: React.MouseEvent<HTMLDivElement>) => {
+    if (!isControlled.current) controls.start("normal");
+    else onMouseLeave?.(e as any);
+   },
+   [controls, onMouseLeave],
+  );
+
+  const svgVariants: Variants = {
+   normal: { rotate: 0, scale: 1 },
+   animate: {
+    rotate: [0, -2, 2, 0],
+    scale: [1, 1.05, 0.95, 1],
+    transition: {
+     duration: 1 * duration,
+     ease: [0.42, 0, 0.58, 1],
+     repeat: 0,
+    },
+   },
+  };
+
+  const pathVariants: Variants = {
+   normal: { pathLength: 1, opacity: 1 },
+   animate: {
+    pathLength: [0, 1],
+    opacity: [0.5, 1],
+    transition: {
+     duration: 0.8 * duration,
+     ease: [0.42, 0, 0.58, 1],
+     repeat: 0,
+    },
+   },
+  };
+
+  const rectVariants: Variants = {
+   normal: { scale: 1 },
+   animate: {
+    scale: [1, 1.2, 0.9, 1],
+    transition: {
+     duration: 1 * duration,
+     ease: [0.42, 0, 0.58, 1],
+     repeat: 0,
+    },
+   },
+  };
+
+  return (
+   <LazyMotion features={domMin} strict>
+    <m.div
+     className={cn("inline-flex items-center justify-center", className)}
+     onMouseEnter={handleEnter}
+     onMouseLeave={handleLeave}
+     {...props}
+     style={{ color, ...props.style }}
+    >
+     <m.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      animate={controls}
+      initial="normal"
+      variants={svgVariants}
+     >
+      <m.path
+       d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"
+       variants={pathVariants}
+      />
+      <m.rect
+       x="14"
+       y="2"
+       width="8"
+       height="8"
+       rx="1"
+       variants={rectVariants}
+      />
+     </m.svg>
+    </m.div>
+   </LazyMotion>
+  );
+ },
+);
+
+BlocksIcon.displayName = "BlocksIcon";
+export { BlocksIcon };
+`,
+    registryUrl: blocksRegistryUrl,
+    cliCommands: [
+      {
+        label: "npm",
+        command: `npx shadcn@latest add ${blocksRegistryUrl}`,
+      },
+      {
+        label: "pnpm",
+        command: `pnpm dlx shadcn@latest add ${blocksRegistryUrl}`,
+      },
+      {
+        label: "yarn",
+        command: `yarn shadcn@latest add ${blocksRegistryUrl}`,
+      },
+      {
+        label: "bun",
+        command: `bunx --bun shadcn@latest add ${blocksRegistryUrl}`,
+      },
+    ],
+  },
+  {
     slug: "brain-circuit-icon",
     name: "Brain Circuit Icon",
     category: "UI",
@@ -4362,6 +4559,7 @@ export const hoverlyIconComponents: Record<string, HoverlyIconComponent> = {
   "arrow-back-icon": ArrowBackIcon,
   "arrow-back-up-icon": ArrowBackUpIcon,
   "bell-active-icon": BellActiveIcon,
+  "blocks-icon": BlocksIcon as unknown as HoverlyIconComponent,
   "brain-circuit-icon": BrainCircuitIcon,
   "brand-react-native-icon": BrandReactNativeIcon,
   "github-copilot-icon": GithubCopilotIcon,

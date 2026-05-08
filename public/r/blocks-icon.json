@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blocks-icon",
+  "type": "registry:component",
+  "title": "Blocks Icon",
+  "description": "A shadcn-compatible animated Blocks Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/blocks-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/blocks-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
