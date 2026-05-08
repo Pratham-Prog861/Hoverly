@@ -77,7 +77,7 @@ export default function Navbar() {
           className="flex items-center gap-2 text-sm font-semibold tracking-wide text-foreground"
         >
           <img src="/logo.png" alt="Hoverly" className="h-8 w-10 rounded-lg" />
-          <span className="font-heading text-sm tracking-[0.2em] text-foreground dark:text-white">
+          <span className="font-heading text-xl tracking-[0.2em] text-foreground dark:text-white">
             Hover
             <span className="text-(--color-highlight)">ly</span>
           </span>

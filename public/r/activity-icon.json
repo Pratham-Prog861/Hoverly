@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "activity-icon",
+  "type": "registry:component",
+  "title": "Activity Icon",
+  "description": "A shadcn-compatible animated Activity Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/activity-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/activity-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
