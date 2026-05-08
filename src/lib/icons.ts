@@ -5,6 +5,7 @@ import AmpersandIcon from "@/icons/ampersand-icon";
 import ArrowBackIcon from "@/icons/arrow-back-icon";
 import ArrowBackUpIcon from "@/icons/arrow-back-up-icon";
 import ArrowDown01Icon from "@/icons/arrow-down-0-1-icon";
+import { AtomIcon } from "@/icons/atom-icon";
 import AtSignIcon from "@/icons/at-sign-icon";
 import { BellActiveIcon } from "@/icons/bell-active-icon";
 import { BlocksIcon } from "@/icons/blocks-icon";
@@ -37,6 +38,7 @@ const activityRegistryUrl = "https://hoverly.com/r/activity-icon.json";
 const alignCenterRegistryUrl = "https://hoverly.com/r/align-center-icon.json";
 const ampersandRegistryUrl = "https://hoverly.com/r/ampersand-icon.json";
 const airplaneRegistryUrl = "https://hoverly.com/r/airplane-icon.json";
+const atomRegistryUrl = "https://hoverly.com/r/atom-icon.json";
 const atSignRegistryUrl = "https://hoverly.com/r/at-sign-icon.json";
 const arrowDown01RegistryUrl = "https://hoverly.com/r/arrow-down-0-1-icon.json";
 const arrowBackRegistryUrl = "https://hoverly.com/r/arrow-back-icon.json";
@@ -3196,6 +3198,160 @@ export { ActivityIcon };
     ],
   },
   {
+    slug: "atom-icon",
+    name: "Atom Icon",
+    category: "UI",
+    description:
+      "An atom symbol with staged orbital path drawing for science, physics, and tech UI.",
+    tags: ["atom", "science", "physics", "orbit", "ui", "tech"],
+    componentName: "AtomIcon",
+    importPath: "@/icons/atom-icon",
+    sourceCode: `"use client";
+
+import type { Variants } from "motion/react";
+import { motion, useAnimation } from "motion/react";
+import type { HTMLAttributes } from "react";
+import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+
+import { cn } from "@/lib/utils";
+
+export interface AtomIconHandle {
+  startAnimation: () => void;
+  stopAnimation: () => void;
+}
+
+interface AtomIconProps extends HTMLAttributes<HTMLDivElement> {
+  size?: number;
+}
+
+const PATH_VARIANTS: Variants = {
+  normal: (custom: number) => ({
+    opacity: 1,
+    pathLength: 1,
+    pathOffset: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeInOut",
+      delay: custom,
+    },
+  }),
+  animate: (custom: number) => ({
+    opacity: [0, 1],
+    pathLength: [0, 1],
+    pathOffset: [1, 0],
+    transition: {
+      duration: 0.4,
+      ease: "easeInOut",
+      delay: custom,
+    },
+  }),
+};
+
+const AtomIcon = forwardRef<AtomIconHandle, AtomIconProps>(
+  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+    const controls = useAnimation();
+    const isControlledRef = useRef(false);
+
+    useImperativeHandle(ref, () => {
+      isControlledRef.current = true;
+
+      return {
+        startAnimation: () => controls.start("animate"),
+        stopAnimation: () => controls.start("normal"),
+      };
+    });
+
+    const handleMouseEnter = useCallback(
+      (e: React.MouseEvent<HTMLDivElement>) => {
+        if (isControlledRef.current) {
+          onMouseEnter?.(e);
+        } else {
+          controls.start("animate");
+        }
+      },
+      [controls, onMouseEnter]
+    );
+
+    const handleMouseLeave = useCallback(
+      (e: React.MouseEvent<HTMLDivElement>) => {
+        if (isControlledRef.current) {
+          onMouseLeave?.(e);
+        } else {
+          controls.start("normal");
+        }
+      },
+      [controls, onMouseLeave]
+    );
+
+    return (
+      <div
+        className={cn(className)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        {...props}
+      >
+        <svg
+          fill="none"
+          height={size}
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width={size}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <motion.circle
+            animate={controls}
+            custom={0}
+            cx="12"
+            cy="12"
+            r="1"
+            variants={PATH_VARIANTS}
+          />
+          <motion.path
+            animate={controls}
+            custom={0.3}
+            d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"
+            variants={PATH_VARIANTS}
+          />
+          <motion.path
+            animate={controls}
+            custom={0.6}
+            d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"
+            variants={PATH_VARIANTS}
+          />
+        </svg>
+      </div>
+    );
+  }
+);
+
+AtomIcon.displayName = "AtomIcon";
+
+export { AtomIcon };
+`,
+    registryUrl: atomRegistryUrl,
+    cliCommands: [
+      {
+        label: "npm",
+        command: `npx shadcn@latest add ${atomRegistryUrl}`,
+      },
+      {
+        label: "pnpm",
+        command: `pnpm dlx shadcn@latest add ${atomRegistryUrl}`,
+      },
+      {
+        label: "yarn",
+        command: `yarn shadcn@latest add ${atomRegistryUrl}`,
+      },
+      {
+        label: "bun",
+        command: `bunx --bun shadcn@latest add ${atomRegistryUrl}`,
+      },
+    ],
+  },
+  {
     slug: "hashtag-icon",
     name: "Hashtag Icon",
     category: "UI",
@@ -4695,6 +4851,7 @@ export const hoverlyIconComponents: Record<string, HoverlyIconComponent> = {
   "activity-icon": ActivityIcon as unknown as HoverlyIconComponent,
   "airplane-icon": AirplaneIcon,
   "arrow-down-0-1-icon": ArrowDown01Icon,
+  "atom-icon": AtomIcon as unknown as HoverlyIconComponent,
   "at-sign-icon": AtSignIcon,
   "align-center-icon": AlignCenterIcon,
   "ampersand-icon": AmpersandIcon,

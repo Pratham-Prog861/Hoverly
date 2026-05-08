@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { motion } from "motion/react";
-import { ThemeToggleButton } from "../ui/skiper-ui/skiper26";
 import SearchBar from "../icons/SearchBar";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import GithubIcon from "@/icons/github-icon";
 import TwitterXIcon from "@/icons/twitter-x-icon";
+import GithubStars from "../github-stars";
 
 const githubUrl = "https://github.com/pratham-prog861/hoverly";
 const xUrl = "https://x.com/prathamCodesDev";
@@ -108,7 +108,7 @@ export default function Navbar() {
           >
             <TwitterXIcon size={20} />
           </Link>
-          <ThemeToggleButton variant="circle" start="top-left" blur={true} />
+          <GithubStars />
           {shouldShowSearch ? (
             <motion.div
               initial={{ opacity: 0, y: 4 }}

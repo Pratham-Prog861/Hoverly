@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "atom-icon",
+  "type": "registry:component",
+  "title": "Atom Icon",
+  "description": "A shadcn-compatible animated Atom Icon powered by Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/icons/atom-icon.tsx",
+      "type": "registry:component",
+      "target": "icons/atom-icon.tsx"
+    },
+    {
+      "path": "src/icons/types.ts",
+      "type": "registry:lib",
+      "target": "icons/types.ts"
+    }
+  ]
+}
