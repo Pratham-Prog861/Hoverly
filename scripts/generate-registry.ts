@@ -199,8 +199,8 @@ function generateRegistry(): void {
 
   const registry: Registry = {
     $schema: "https://ui.shadcn.com/schema/registry.json",
-    name: "hoverly",
-    homepage: "https://hoverly.com",
+    name: "hoverlyy",
+    homepage: "https://hoverlyy.vercel.app/",
     items,
   };
 

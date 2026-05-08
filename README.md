@@ -1,8 +1,8 @@
-# Hoverly
+# Hoverlyy
 
 Animated icon library built with React and Motion. Icons designed to move with intent, not decoration.
 
-![Hoverly Product Screenshot](public/product/home_page.png)
+![Hoverlyy Product Screenshot](public/product/home_page.png)
 
 ## Features
 
@@ -16,7 +16,7 @@ Animated icon library built with React and Motion. Icons designed to move with i
 ### Via CLI
 
 ```bash
-npx shadcn@latest add https://hoverly.com/r/[icon-name].json
+npx shadcn@latest add https://hoverlyy.vercel.app/r/[icon-name].json
 ```
 
 ### Manual Installation
@@ -93,7 +93,7 @@ Check out our [Contributing Guide](CONTRIBUTING.md) to get started!
 
 ## Links
 
-- Website: [hoverly.com](https://hoverly.com) (WIP)
+- Website: [hoverlyy.vercel.app](https://hoverlyy.vercel.app/) (WIP)
 - GitHub: [github.com/Pratham-Prog861/hoverly](https://github.com/Pratham-Prog861/hoverly)
 
 ## Creator

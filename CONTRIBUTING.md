@@ -1,6 +1,6 @@
-# Contributing to Hoverly
+# Contributing to Hoverlyy
 
-Thank you for your interest in contributing to Hoverly! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to Hoverlyy! This document provides guidelines and instructions for contributing to the project.
 
 ## Table of Contents
 
@@ -31,7 +31,7 @@ This project and everyone participating in it is governed by the [Code of Conduc
 
 ## Ways to Contribute
 
-You can contribute to Hoverly in two ways:
+You can contribute to Hoverlyy in two ways:
 
 ### 1. Improving Functionality / Optimizing the Website
 
@@ -383,4 +383,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-Thank you for contributing to Hoverly!
+Thank you for contributing to Hoverlyy!

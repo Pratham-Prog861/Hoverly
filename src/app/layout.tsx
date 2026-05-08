@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-
+import { Analytics } from "@vercel/analytics/next";
 import CommandMenu from "@/components/layout/CommandMenu";
-import { ThemeProvider } from "@/components/ui/theme-provider";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hoverly.com"),
+  metadataBase: new URL("https://hoverlyy.vercel.app/"),
   title: {
     default: "Hoverly",
     template: "%s | Hoverly",
@@ -37,9 +37,15 @@ export default function RootLayout({
         suppressHydrationWarning
         className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground"
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          forcedTheme="dark"
+        >
           <CommandMenu />
           <div className="relative flex flex-1 flex-col">{children}</div>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

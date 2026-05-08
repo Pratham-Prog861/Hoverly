@@ -58,7 +58,7 @@ export function GithubStarsProvider({ children }: { children: ReactNode }) {
     fetch(GITHUB_API, {
       headers: {
         Accept: "application/vnd.github.v3+json",
-        "User-Agent": "Hoverly-website",
+        "User-Agent": "Hoverlyy-website",
       },
       signal: controller.signal,
     })

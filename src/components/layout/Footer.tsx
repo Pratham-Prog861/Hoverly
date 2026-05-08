@@ -41,11 +41,11 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-2">
               <img
                 src="/logo.png"
-                alt="Hoverly"
+                alt="Hoverlyy"
                 className="h-8 w-10 rounded-lg"
               />
               <span className="font-heading text-sm font-semibold tracking-[0.16em] text-foreground uppercase dark:text-white">
-                Hoverly
+                Hoverlyy
               </span>
             </Link>
 
@@ -117,7 +117,7 @@ export default function Footer() {
           </div>
         </div>
 
-         <div className="border-t pt-4">
+        <div className="border-t pt-4">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-muted-foreground text-center text-sm md:text-left">
               Built by{" "}

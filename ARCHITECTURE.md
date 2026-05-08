@@ -1,6 +1,6 @@
 # Architecture
 
-Technical overview of Hoverly codebase.
+Technical overview of Hoverlyy codebase.
 
 ## Tech Stack
 

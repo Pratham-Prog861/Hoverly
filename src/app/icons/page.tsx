@@ -15,7 +15,7 @@ export default async function IconsPage({ searchParams }: PageProps<"/icons">) {
         ? (params.q[0] ?? "")
         : "";
 
-  const registryUrl = "https://hoverly.com/r/arrow-back-icon.json";
+  const registryUrl = "https://hoverlyy.vercel.app/r/arrow-back-icon.json";
 
   return (
     <>

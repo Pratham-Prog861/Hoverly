@@ -1,16 +1,14 @@
 {
   "_generated": "AUTO-GENERATED FILE - DO NOT EDIT. Run 'npm run registry:build' to regenerate.",
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "hoverly",
-  "homepage": "https://hoverly.com",
+  "name": "hoverlyy",
+  "homepage": "https://hoverlyy.vercel.app/",
   "items": [
     {
       "name": "ActivityIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -27,9 +25,7 @@
       "name": "AirplaneIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -46,9 +42,7 @@
       "name": "AlignCenterIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -65,9 +59,7 @@
       "name": "AmpersandIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -84,9 +76,7 @@
       "name": "ArrowBackIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -103,9 +93,7 @@
       "name": "ArrowBackUpIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -122,9 +110,7 @@
       "name": "ArrowDown01Icon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -141,9 +127,7 @@
       "name": "AtomIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -160,9 +144,7 @@
       "name": "AtSignIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -179,9 +161,7 @@
       "name": "BellActiveIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -198,9 +178,7 @@
       "name": "BlocksIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -217,9 +195,7 @@
       "name": "BrainCircuitIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -236,9 +212,7 @@
       "name": "BrandReactNativeIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -255,9 +229,7 @@
       "name": "GithubCopilotIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -274,9 +246,7 @@
       "name": "GithubIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -293,9 +263,7 @@
       "name": "HashtagIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -312,9 +280,7 @@
       "name": "InfoCircleIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -331,9 +297,7 @@
       "name": "LinkedinIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -350,9 +314,7 @@
       "name": "NotionIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -369,9 +331,7 @@
       "name": "OpenaiIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -388,9 +348,7 @@
       "name": "PassportIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -407,9 +365,7 @@
       "name": "QwenIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -426,9 +382,7 @@
       "name": "RupeeIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -445,9 +399,7 @@
       "name": "TelegramIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -464,9 +416,7 @@
       "name": "TerminalIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -483,9 +433,7 @@
       "name": "ThreadsIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -502,9 +450,7 @@
       "name": "TwitchIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -521,9 +467,7 @@
       "name": "TwitterXIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -540,9 +484,7 @@
       "name": "TypescriptIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
@@ -559,9 +501,7 @@
       "name": "WhatsappIcon",
       "type": "registry:ui",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {

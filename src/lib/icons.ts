@@ -34,38 +34,47 @@ import type {
 import TypescriptIcon from "@/icons/typescript-icon";
 import WhatsappIcon from "@/icons/whatsapp-icon";
 
-const activityRegistryUrl = "https://hoverly.com/r/activity-icon.json";
-const alignCenterRegistryUrl = "https://hoverly.com/r/align-center-icon.json";
-const ampersandRegistryUrl = "https://hoverly.com/r/ampersand-icon.json";
-const airplaneRegistryUrl = "https://hoverly.com/r/airplane-icon.json";
-const atomRegistryUrl = "https://hoverly.com/r/atom-icon.json";
-const atSignRegistryUrl = "https://hoverly.com/r/at-sign-icon.json";
-const arrowDown01RegistryUrl = "https://hoverly.com/r/arrow-down-0-1-icon.json";
-const arrowBackRegistryUrl = "https://hoverly.com/r/arrow-back-icon.json";
-const arrowBackUpRegistryUrl = "https://hoverly.com/r/arrow-back-up-icon.json";
-const bellActiveRegistryUrl = "https://hoverly.com/r/bell-active-icon.json";
-const blocksRegistryUrl = "https://hoverly.com/r/blocks-icon.json";
-const brainCircuitRegistryUrl = "https://hoverly.com/r/brain-circuit-icon.json";
+const activityRegistryUrl = "https://hoverlyy.vercel.app/r/activity-icon.json";
+const alignCenterRegistryUrl =
+  "https://hoverlyy.vercel.app/r/align-center-icon.json";
+const ampersandRegistryUrl =
+  "https://hoverlyy.vercel.app/r/ampersand-icon.json";
+const airplaneRegistryUrl = "https://hoverlyy.vercel.app/r/airplane-icon.json";
+const atomRegistryUrl = "https://hoverlyy.vercel.app/r/atom-icon.json";
+const atSignRegistryUrl = "https://hoverlyy.vercel.app/r/at-sign-icon.json";
+const arrowDown01RegistryUrl =
+  "https://hoverlyy.vercel.app/r/arrow-down-0-1-icon.json";
+const arrowBackRegistryUrl =
+  "https://hoverlyy.vercel.app/r/arrow-back-icon.json";
+const arrowBackUpRegistryUrl =
+  "https://hoverlyy.vercel.app/r/arrow-back-up-icon.json";
+const bellActiveRegistryUrl =
+  "https://hoverlyy.vercel.app/r/bell-active-icon.json";
+const blocksRegistryUrl = "https://hoverlyy.vercel.app/r/blocks-icon.json";
+const brainCircuitRegistryUrl =
+  "https://hoverlyy.vercel.app/r/brain-circuit-icon.json";
 const brandReactNativeRegistryUrl =
-  "https://hoverly.com/r/brand-react-native-icon.json";
+  "https://hoverlyy.vercel.app/r/brand-react-native-icon.json";
 const githubCopilotRegistryUrl =
-  "https://hoverly.com/r/github-copilot-icon.json";
-const githubRegistryUrl = "https://hoverly.com/r/github-icon.json";
-const hashtagRegistryUrl = "https://hoverly.com/r/hashtag-icon.json";
-const infoCircleRegistryUrl = "https://hoverly.com/r/info-circle-icon.json";
-const linkedinRegistryUrl = "https://hoverly.com/r/linkedin-icon.json";
-const notionRegistryUrl = "https://hoverly.com/r/notion-icon.json";
-const openaiRegistryUrl = "https://hoverly.com/r/openai-icon.json";
-const passportRegistryUrl = "https://hoverly.com/r/passport-icon.json";
-const rupeeRegistryUrl = "https://hoverly.com/r/rupee-icon.json";
-const qwenRegistryUrl = "https://hoverly.com/r/qwen-icon.json";
-const telegramRegistryUrl = "https://hoverly.com/r/telegram-icon.json";
-const terminalRegistryUrl = "https://hoverly.com/r/terminal-icon.json";
-const threadsRegistryUrl = "https://hoverly.com/r/threads-icon.json";
-const twitchRegistryUrl = "https://hoverly.com/r/twitch-icon.json";
-const typescriptRegistryUrl = "https://hoverly.com/r/typescript-icon.json";
-const whatsappRegistryUrl = "https://hoverly.com/r/whatsapp-icon.json";
-const twitterXRegistryUrl = "https://hoverly.com/r/twitter-x-icon.json";
+  "https://hoverlyy.vercel.app/r/github-copilot-icon.json";
+const githubRegistryUrl = "https://hoverlyy.vercel.app/r/github-icon.json";
+const hashtagRegistryUrl = "https://hoverlyy.vercel.app/r/hashtag-icon.json";
+const infoCircleRegistryUrl =
+  "https://hoverlyy.vercel.app/r/info-circle-icon.json";
+const linkedinRegistryUrl = "https://hoverlyy.vercel.app/r/linkedin-icon.json";
+const notionRegistryUrl = "https://hoverlyy.vercel.app/r/notion-icon.json";
+const openaiRegistryUrl = "https://hoverlyy.vercel.app/r/openai-icon.json";
+const passportRegistryUrl = "https://hoverlyy.vercel.app/r/passport-icon.json";
+const rupeeRegistryUrl = "https://hoverlyy.vercel.app/r/rupee-icon.json";
+const qwenRegistryUrl = "https://hoverlyy.vercel.app/r/qwen-icon.json";
+const telegramRegistryUrl = "https://hoverlyy.vercel.app/r/telegram-icon.json";
+const terminalRegistryUrl = "https://hoverlyy.vercel.app/r/terminal-icon.json";
+const threadsRegistryUrl = "https://hoverlyy.vercel.app/r/threads-icon.json";
+const twitchRegistryUrl = "https://hoverlyy.vercel.app/r/twitch-icon.json";
+const typescriptRegistryUrl =
+  "https://hoverlyy.vercel.app/r/typescript-icon.json";
+const whatsappRegistryUrl = "https://hoverlyy.vercel.app/r/whatsapp-icon.json";
+const twitterXRegistryUrl = "https://hoverlyy.vercel.app/r/twitter-x-icon.json";
 
 const linkedinIconSource = `"use client";
 

@@ -10,7 +10,7 @@ import HashtagIcon from "@/icons/hashtag-icon";
 import { hoverlyIcons } from "@/lib/icons";
 
 const githubUrl = "https://github.com/pratham-prog861/hoverly";
-const featuredIcon = hoverlyIcons[0];
+const featuredIcon = hoverlyIcons[5];
 
 export default function CTA() {
   const [activeCommandIndex, setActiveCommandIndex] = useState(0);

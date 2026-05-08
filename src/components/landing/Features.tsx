@@ -117,7 +117,7 @@ function OpenSourceVisual() {
       </div>
       <div className="absolute inset-x-6 top-20 rounded-[1.25rem] border border-border/70 bg-background/70 p-4 shadow-[0_18px_50px_rgba(15,23,42,0.12)] dark:border-white/10 dark:bg-black/30 dark:shadow-[0_18px_60px_rgba(0,0,0,0.28)]">
         <div className="flex items-center justify-between text-xs text-foreground/55 dark:text-white/45">
-          <span>hoverly/icons</span>
+          <span>hoverlyy/icons</span>
           <span>public repo</span>
         </div>
         <div className="mt-4 space-y-3">
@@ -179,10 +179,10 @@ function RegistryVisual() {
   type CliTab = "npm" | "pnpm" | "yarn" | "bun";
   const [activeTab, setActiveTab] = useState<CliTab>("npm");
   const commands: Record<CliTab, string> = {
-    npm: "npx shadcn@latest add https://hoverly.com/r/align-center-icon.json",
-    pnpm: "pnpm dlx shadcn@latest add https://hoverly.com/r/align-center-icon.json",
-    yarn: "yarn shadcn@latest add https://hoverly.com/r/align-center-icon.json",
-    bun: "bunx --bun shadcn@latest add https://hoverly.com/r/align-center-icon.json",
+    npm: "npx shadcn@latest add https://hoverlyy.vercel.app/r/align-center-icon.json",
+    pnpm: "pnpm dlx shadcn@latest add https://hoverlyy.vercel.app/r/align-center-icon.json",
+    yarn: "yarn shadcn@latest add https://hoverlyy.vercel.app/r/align-center-icon.json",
+    bun: "bunx --bun shadcn@latest add https://hoverlyy.vercel.app/r/align-center-icon.json",
   };
 
   return (
@@ -235,7 +235,10 @@ function MotionVisual() {
         transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
         className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[2rem] border border-border/70 bg-card/75 shadow-[0_24px_80px_rgba(18,194,233,0.2)] dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(18,194,233,0.18)]"
       >
-        <BrandReactNativeIcon size={96} className="text-foreground dark:text-white" />
+        <BrandReactNativeIcon
+          size={96}
+          className="text-foreground dark:text-white"
+        />
       </motion.div>
       <div className="absolute left-6 top-6 rounded-full border border-border/70 bg-card/75 px-3 py-1 text-[11px] tracking-[0.2em] text-foreground/55 uppercase dark:border-white/10 dark:bg-white/6 dark:text-white/55">
         hover aware
