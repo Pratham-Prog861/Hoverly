@@ -4,6 +4,7 @@ import CommandMenu from "@/components/layout/CommandMenu";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { GithubStarsProvider } from "@/components/github-stars-context";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hoverlyy.vercel.app/"),
@@ -44,10 +45,12 @@ export default function RootLayout({
           enableSystem={false}
           forcedTheme="dark"
         >
-          <CommandMenu />
-          <div className="relative flex flex-1 flex-col">{children}</div>
-          <Analytics />
-          <SpeedInsights />
+          <GithubStarsProvider>
+            <CommandMenu />
+            <div className="relative flex flex-1 flex-col">{children}</div>
+            <Analytics />
+            <SpeedInsights />
+          </GithubStarsProvider>
         </ThemeProvider>
       </body>
     </html>

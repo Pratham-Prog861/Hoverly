@@ -29,14 +29,17 @@ export function useGithubStars() {
   return useContext(GithubStarsContext);
 }
 
-function getCachedStars(): number | null {
+function getCachedStars(): StarsCacheData | null {
   if (typeof window === "undefined") return null;
   try {
     const cached = localStorage.getItem(CACHE_KEY);
     if (cached) {
       const data: StarsCacheData = JSON.parse(cached);
-      if (Date.now() - data.timestamp < CACHE_DURATION) {
-        return data.stars;
+      if (
+        typeof data?.stars === "number" &&
+        typeof data?.timestamp === "number"
+      ) {
+        return data;
       }
     }
   } catch {
@@ -47,23 +50,34 @@ function getCachedStars(): number | null {
 }
 
 export function GithubStarsProvider({ children }: { children: ReactNode }) {
-  const [stars, setStars] = useState<number | null>(() => getCachedStars());
+  const [stars, setStars] = useState<number | null>(
+    () => getCachedStars()?.stars ?? null,
+  );
 
   useEffect(() => {
-    // Skip fetch if we have valid cached data
-    if (stars !== null) return;
-
+    const cached = getCachedStars();
     const controller = new AbortController();
 
-    fetch(GITHUB_API, {
-      headers: {
-        Accept: "application/vnd.github.v3+json",
-        "User-Agent": "Hoverlyy-website",
-      },
-      signal: controller.signal,
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
+    // Stale-while-revalidate: if cached exists (even if stale), show it immediately.
+    if (cached && stars === null) {
+      setStars(cached.stars);
+    }
+
+    let retryTimeout: ReturnType<typeof setTimeout> | null = null;
+
+    const fetchStars = async () => {
+      try {
+        const res = await fetch(GITHUB_API, {
+          headers: {
+            Accept: "application/vnd.github.v3+json",
+          },
+          cache: "no-store",
+          signal: controller.signal,
+        });
+
+        if (!res.ok) throw new Error(`GitHub API responded with ${res.status}`);
+        const data = await res.json();
+
         if (data?.stargazers_count != null) {
           const count = data.stargazers_count;
           setStars(count);
@@ -72,11 +86,23 @@ export function GithubStarsProvider({ children }: { children: ReactNode }) {
             JSON.stringify({ stars: count, timestamp: Date.now() }),
           );
         }
-      })
-      .catch(() => {});
+      } catch {
+        // Retry once if we couldn't load anything at all.
+        if (stars === null) {
+          retryTimeout = setTimeout(fetchStars, 30000);
+        }
+      }
+    };
 
-    return () => controller.abort();
-  }, [stars]);
+    fetchStars();
+
+    return () => {
+      controller.abort();
+      if (retryTimeout) clearTimeout(retryTimeout);
+    };
+    // Intentionally only run on mount; cache handles staleness.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <GithubStarsContext.Provider value={{ stars }}>
