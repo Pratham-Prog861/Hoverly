@@ -1,22 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "blocks-icon",
-  "type": "registry:component",
   "title": "Blocks Icon",
   "description": "A shadcn-compatible animated Blocks Icon powered by Motion.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
+  "devDependencies": [],
+  "registryDependencies": [],
   "files": [
     {
       "path": "src/icons/blocks-icon.tsx",
+      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\nimport type { Variants } from \"motion/react\";\r\nimport {\r\n LazyMotion,\r\n domMin,\r\n m,\r\n useAnimation,\r\n useReducedMotion,\r\n} from \"motion/react\";\r\nimport {\r\n forwardRef,\r\n useCallback,\r\n useImperativeHandle,\r\n useRef,\r\n type HTMLAttributes,\r\n} from \"react\";\r\nexport interface BlocksIconHandle {\r\n startAnimation: () => void;\r\n stopAnimation: () => void;\r\n}\r\n\r\ninterface BlocksIconProps extends Omit<\r\n HTMLAttributes<HTMLDivElement>,\r\n | \"color\"\r\n | \"onDrag\"\r\n | \"onDragStart\"\r\n | \"onDragEnd\"\r\n | \"onAnimationStart\"\r\n | \"onAnimationEnd\"\r\n | \"onAnimationIteration\"\r\n> {\r\n size?: number;\r\n duration?: number;\r\n isAnimated?: boolean;\r\n color?: string;\r\n}\r\n\r\nconst BlocksIcon = forwardRef<BlocksIconHandle, BlocksIconProps>(\r\n (\r\n  {\r\n   onMouseEnter,\r\n   onMouseLeave,\r\n   className,\r\n   size = 24,\r\n   duration = 1,\r\n   isAnimated = true,\r\n   color,\r\n   ...props\r\n  },\r\n  ref,\r\n ) => {\r\n  const controls = useAnimation();\r\n  const reduced = useReducedMotion();\r\n  const isControlled = useRef(false);\r\n\r\n  useImperativeHandle(ref, () => {\r\n   isControlled.current = true;\r\n   return {\r\n    startAnimation: () =>\r\n     reduced ? controls.start(\"normal\") : controls.start(\"animate\"),\r\n    stopAnimation: () => controls.start(\"normal\"),\r\n   };\r\n  });\r\n\r\n  const handleEnter = useCallback(\r\n   (e?: React.MouseEvent<HTMLDivElement>) => {\r\n    if (!isAnimated || reduced) return;\r\n    if (!isControlled.current) controls.start(\"animate\");\r\n    else onMouseEnter?.(e as any);\r\n   },\r\n   [controls, reduced, isAnimated, onMouseEnter],\r\n  );\r\n\r\n  const handleLeave = useCallback(\r\n   (e?: React.MouseEvent<HTMLDivElement>) => {\r\n    if (!isControlled.current) controls.start(\"normal\");\r\n    else onMouseLeave?.(e as any);\r\n   },\r\n   [controls, onMouseLeave],\r\n  );\r\n\r\n  const svgVariants: Variants = {\r\n   normal: { rotate: 0, scale: 1 },\r\n   animate: {\r\n    rotate: [0, -2, 2, 0],\r\n    scale: [1, 1.05, 0.95, 1],\r\n    transition: {\r\n     duration: 1 * duration,\r\n     ease: [0.42, 0, 0.58, 1],\r\n     repeat: 0,\r\n    },\r\n   },\r\n  };\r\n\r\n  const pathVariants: Variants = {\r\n   normal: { pathLength: 1, opacity: 1 },\r\n   animate: {\r\n    pathLength: [0, 1],\r\n    opacity: [0.5, 1],\r\n    transition: {\r\n     duration: 0.8 * duration,\r\n     ease: [0.42, 0, 0.58, 1],\r\n     repeat: 0,\r\n    },\r\n   },\r\n  };\r\n\r\n  const rectVariants: Variants = {\r\n   normal: { scale: 1 },\r\n   animate: {\r\n    scale: [1, 1.2, 0.9, 1],\r\n    transition: {\r\n     duration: 1 * duration,\r\n     ease: [0.42, 0, 0.58, 1],\r\n     repeat: 0,\r\n    },\r\n   },\r\n  };\r\n\r\n  return (\r\n   <LazyMotion features={domMin} strict>\r\n    <m.div\r\n     className={cn(\"inline-flex items-center justify-center\", className)}\r\n     onMouseEnter={handleEnter}\r\n     onMouseLeave={handleLeave}\r\n     {...props}\r\n     style={{ color, ...props.style }}\r\n    >\r\n     <m.svg\r\n      xmlns=\"http://www.w3.org/2000/svg\"\r\n      width={size}\r\n      height={size}\r\n      viewBox=\"0 0 24 24\"\r\n      fill=\"none\"\r\n      stroke=\"currentColor\"\r\n      strokeWidth=\"2\"\r\n      strokeLinecap=\"round\"\r\n      strokeLinejoin=\"round\"\r\n      animate={controls}\r\n      initial=\"normal\"\r\n      variants={svgVariants}\r\n     >\r\n      <m.path\r\n       d=\"M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2\"\r\n       variants={pathVariants}\r\n      />\r\n      <m.rect\r\n       x=\"14\"\r\n       y=\"2\"\r\n       width=\"8\"\r\n       height=\"8\"\r\n       rx=\"1\"\r\n       variants={rectVariants}\r\n      />\r\n     </m.svg>\r\n    </m.div>\r\n   </LazyMotion>\r\n  );\r\n },\r\n);\r\n\r\nBlocksIcon.displayName = \"BlocksIcon\";\r\nexport { BlocksIcon };\r\n",
       "type": "registry:component",
       "target": "icons/blocks-icon.tsx"
     },
     {
       "path": "src/icons/types.ts",
+      "content": "import type { SVGMotionProps } from \"motion/react\";\nimport type { ComponentType } from \"react\";\n\nexport type HoverlyIconCategory = \"All\" | \"Social\" | \"UI\" | \"Arrows\";\n\nexport interface AnimatedIconHandle {\n  startAnimation: () => void | Promise<void>;\n  stopAnimation: () => void | Promise<void>;\n}\n\nexport interface AnimatedIconProps\n  extends Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> {\n  size?: number;\n  color?: string;\n  strokeWidth?: number;\n  className?: string;\n}\n\nexport type HoverlyIconProps = AnimatedIconProps;\n\nexport interface IconCliCommand {\n  label: string;\n  command: string;\n}\n\nexport interface HoverlyIconRecord {\n  slug: string;\n  name: string;\n  category: Exclude<HoverlyIconCategory, \"All\">;\n  description: string;\n  tags: string[];\n  componentName: string;\n  importPath: string;\n  sourceCode: string;\n  registryUrl: string;\n  cliCommands: IconCliCommand[];\n}\n\nexport type HoverlyIconComponent = ComponentType<AnimatedIconProps>;\n",
       "type": "registry:lib",
       "target": "icons/types.ts"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

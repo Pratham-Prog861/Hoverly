@@ -1,22 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "align-center-icon",
-  "type": "registry:component",
   "title": "Align Center Icon",
   "description": "A shadcn-compatible animated Align Center Icon powered by Motion.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
+  "devDependencies": [],
+  "registryDependencies": [],
   "files": [
     {
       "path": "src/icons/align-center-icon.tsx",
+      "content": "\"use client\";\n\nimport { motion, useAnimate } from \"motion/react\";\nimport { forwardRef, useImperativeHandle } from \"react\";\n\nimport type { AnimatedIconHandle, AnimatedIconProps } from \"@/icons/types\";\n\nexport const AlignCenterIcon = forwardRef<\n  AnimatedIconHandle,\n  AnimatedIconProps\n>(\n  (\n    {\n      size = 24,\n      color = \"currentColor\",\n      strokeWidth = 2,\n      className = \"\",\n      ...props\n    },\n    ref,\n  ) => {\n    const [scope, animate] = useAnimate();\n\n    const startAnimation = async () => {\n      animate(\".line-1\", { scaleX: [1, 0.8, 1] }, { duration: 0.3 });\n      animate(\n        \".line-2\",\n        { scaleX: [1, 1.2, 1] },\n        { duration: 0.3, delay: 0.1 },\n      );\n      animate(\n        \".line-3\",\n        { scaleX: [1, 0.9, 1] },\n        { duration: 0.3, delay: 0.2 },\n      );\n    };\n\n    const stopAnimation = () => {\n      animate(\".line-1\", { scaleX: 1 }, { duration: 0.2 });\n      animate(\".line-2\", { scaleX: 1 }, { duration: 0.2 });\n      animate(\".line-3\", { scaleX: 1 }, { duration: 0.2 });\n    };\n\n    useImperativeHandle(ref, () => {\n      return {\n        startAnimation,\n        stopAnimation,\n      };\n    });\n\n    return (\n      <motion.svg\n        ref={scope}\n        onMouseEnter={startAnimation}\n        onMouseLeave={stopAnimation}\n        xmlns=\"http://www.w3.org/2000/svg\"\n        width={size}\n        height={size}\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke={color}\n        strokeWidth={strokeWidth}\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        className={`cursor-pointer ${className}`}\n        style={{ overflow: \"visible\" }}\n        role=\"img\"\n        aria-label=\"Align center icon\"\n        {...props}\n      >\n        <title>Align center icon</title>\n        <motion.path\n          className=\"line-1\"\n          d=\"M4 6l16 0\"\n          style={{ transformOrigin: \"center\" }}\n        />\n        <motion.path\n          className=\"line-2\"\n          d=\"M8 12l8 0\"\n          style={{ transformOrigin: \"center\" }}\n        />\n        <motion.path\n          className=\"line-3\"\n          d=\"M6 18l12 0\"\n          style={{ transformOrigin: \"center\" }}\n        />\n      </motion.svg>\n    );\n  },\n);\n\nAlignCenterIcon.displayName = \"AlignCenterIcon\";\n",
       "type": "registry:component",
       "target": "icons/align-center-icon.tsx"
     },
     {
       "path": "src/icons/types.ts",
+      "content": "import type { SVGMotionProps } from \"motion/react\";\nimport type { ComponentType } from \"react\";\n\nexport type HoverlyIconCategory = \"All\" | \"Social\" | \"UI\" | \"Arrows\";\n\nexport interface AnimatedIconHandle {\n  startAnimation: () => void | Promise<void>;\n  stopAnimation: () => void | Promise<void>;\n}\n\nexport interface AnimatedIconProps\n  extends Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> {\n  size?: number;\n  color?: string;\n  strokeWidth?: number;\n  className?: string;\n}\n\nexport type HoverlyIconProps = AnimatedIconProps;\n\nexport interface IconCliCommand {\n  label: string;\n  command: string;\n}\n\nexport interface HoverlyIconRecord {\n  slug: string;\n  name: string;\n  category: Exclude<HoverlyIconCategory, \"All\">;\n  description: string;\n  tags: string[];\n  componentName: string;\n  importPath: string;\n  sourceCode: string;\n  registryUrl: string;\n  cliCommands: IconCliCommand[];\n}\n\nexport type HoverlyIconComponent = ComponentType<AnimatedIconProps>;\n",
       "type": "registry:lib",
       "target": "icons/types.ts"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

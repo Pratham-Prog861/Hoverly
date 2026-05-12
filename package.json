@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm registry:build && next build",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "registry:build": "npx tsx scripts/generate-registry.ts",
+    "registry:build": "npx tsx scripts/generate-registry.ts && shadcn build && biome format --write registry.json public/r",
     "registry:r": "npx tsx scripts/generate-r-items.ts",
     "registry:r:all": "npx tsx scripts/generate-r-items.ts --all"
   },

@@ -16,11 +16,17 @@ const EXCLUDED_FILES = ["index.ts", "types.ts"];
 
 interface RegistryItem {
   name: string;
-  type: "registry:ui";
+  type: "registry:component";
+  title?: string;
+  description?: string;
   registryDependencies: string[];
   dependencies: string[];
   devDependencies: string[];
-  files: { path: string; type: "registry:ui" }[];
+  files: {
+    path: string;
+    type: "registry:component" | "registry:lib";
+    target: string;
+  }[];
 }
 
 interface Registry {
@@ -59,27 +65,36 @@ function fileToRegistryName(filename: string): string {
   return filename.replace(".tsx", "");
 }
 
+function toTitleFromSlug(slug: string): string {
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 function generateRegistryItem(filename: string): RegistryItem {
   const name = fileToRegistryName(filename);
-  const componentName = name
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join("");
+  const title = toTitleFromSlug(name);
 
   return {
-    name: componentName,
-    type: "registry:ui",
+    name,
+    type: "registry:component",
+    title,
+    description: `A shadcn-compatible animated ${title} powered by Motion.`,
     registryDependencies: [],
     dependencies: ["motion"],
     devDependencies: [],
     files: [
       {
         path: `src/icons/${filename}`,
-        type: "registry:ui",
+        type: "registry:component",
+        target: `icons/${filename}`,
       },
       {
         path: "src/icons/types.ts",
-        type: "registry:ui",
+        type: "registry:lib",
+        target: "icons/types.ts",
       },
     ],
   };

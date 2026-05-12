@@ -1,22 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "twitter-x-icon",
-  "type": "registry:component",
   "title": "Twitter X Icon",
   "description": "A shadcn-compatible animated Twitter X Icon powered by Motion.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
+  "devDependencies": [],
+  "registryDependencies": [],
   "files": [
     {
       "path": "src/icons/twitter-x-icon.tsx",
+      "content": "\"use client\";\r\n\r\nimport { forwardRef, useImperativeHandle, useCallback } from \"react\";\r\nimport type { AnimatedIconHandle, AnimatedIconProps } from \"./types\";\r\nimport { motion, useAnimate } from \"motion/react\";\r\n\r\nconst TwitterXIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(\r\n  (\r\n    { size = 24, color = \"currentColor\", strokeWidth = 2, className = \"\" },\r\n    ref,\r\n  ) => {\r\n    const [scope, animate] = useAnimate();\r\n\r\n    const start = useCallback(async () => {\r\n      // Instantly reset paths to transparent and 0 length\r\n      await animate(\r\n        \".path-main, .path-cross\",\r\n        { pathLength: 0, opacity: 0 },\r\n        { duration: 0 },\r\n      );\r\n\r\n      // Draw the main thick path first\r\n      animate(\r\n        \".path-main\",\r\n        { pathLength: [0, 1], opacity: [0, 1] },\r\n        { duration: 0.4, ease: \"easeOut\" },\r\n      );\r\n\r\n      // Then fade in and draw the cross lines with a slight delay\r\n      await animate(\r\n        \".path-cross\",\r\n        { pathLength: [0, 1], opacity: [0, 1] },\r\n        { duration: 0.3, ease: \"easeOut\", delay: 0.2 },\r\n      );\r\n\r\n      // Final punchy reaction\r\n      animate(\r\n        \".x-icon\",\r\n        { scale: [1, 1.15, 1], rotate: [0, -5, 5, 0] },\r\n        { duration: 0.4, ease: \"easeInOut\" },\r\n      );\r\n    }, [animate]);\r\n\r\n    const stop = useCallback(() => {\r\n      animate(\r\n        \".path-main, .path-cross\",\r\n        { pathLength: 1, opacity: 1 },\r\n        { duration: 0.2, ease: \"easeOut\" },\r\n      );\r\n      animate(\r\n        \".x-icon\",\r\n        { scale: 1, rotate: 0 },\r\n        { duration: 0.2, ease: \"easeOut\" },\r\n      );\r\n    }, [animate]);\r\n\r\n    useImperativeHandle(ref, () => ({\r\n      startAnimation: start,\r\n      stopAnimation: stop,\r\n    }));\r\n\r\n    return (\r\n      <motion.svg\r\n        ref={scope}\r\n        onHoverStart={start}\r\n        onHoverEnd={stop}\r\n        xmlns=\"http://www.w3.org/2000/svg\"\r\n        width={size}\r\n        height={size}\r\n        viewBox=\"0 0 24 24\"\r\n        fill=\"none\"\r\n        stroke={color}\r\n        strokeWidth={strokeWidth}\r\n        strokeLinecap=\"round\"\r\n        strokeLinejoin=\"round\"\r\n        className={`cursor-pointer ${className}`}\r\n      >\r\n        <motion.g className=\"x-icon\" style={{ transformOrigin: \"center\" }}>\r\n          <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\" />\r\n          <motion.path\r\n            className=\"path-main\"\r\n            d=\"M4 4l11.733 16h4.267l-11.733 -16z\"\r\n            initial={{ pathLength: 1, opacity: 1 }}\r\n          />\r\n          <motion.path\r\n            className=\"path-cross\"\r\n            d=\"M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772\"\r\n            initial={{ pathLength: 1, opacity: 1 }}\r\n          />\r\n        </motion.g>\r\n      </motion.svg>\r\n    );\r\n  },\r\n);\r\n\r\nTwitterXIcon.displayName = \"TwitterXIcon\";\r\nexport default TwitterXIcon;\r\n",
       "type": "registry:component",
       "target": "icons/twitter-x-icon.tsx"
     },
     {
       "path": "src/icons/types.ts",
+      "content": "import type { SVGMotionProps } from \"motion/react\";\nimport type { ComponentType } from \"react\";\n\nexport type HoverlyIconCategory = \"All\" | \"Social\" | \"UI\" | \"Arrows\";\n\nexport interface AnimatedIconHandle {\n  startAnimation: () => void | Promise<void>;\n  stopAnimation: () => void | Promise<void>;\n}\n\nexport interface AnimatedIconProps\n  extends Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> {\n  size?: number;\n  color?: string;\n  strokeWidth?: number;\n  className?: string;\n}\n\nexport type HoverlyIconProps = AnimatedIconProps;\n\nexport interface IconCliCommand {\n  label: string;\n  command: string;\n}\n\nexport interface HoverlyIconRecord {\n  slug: string;\n  name: string;\n  category: Exclude<HoverlyIconCategory, \"All\">;\n  description: string;\n  tags: string[];\n  componentName: string;\n  importPath: string;\n  sourceCode: string;\n  registryUrl: string;\n  cliCommands: IconCliCommand[];\n}\n\nexport type HoverlyIconComponent = ComponentType<AnimatedIconProps>;\n",
       "type": "registry:lib",
       "target": "icons/types.ts"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

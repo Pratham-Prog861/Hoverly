@@ -1,22 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "bell-active-icon",
-  "type": "registry:component",
   "title": "Bell Active Icon",
   "description": "A shadcn-compatible animated Bell Active Icon powered by Motion.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
+  "devDependencies": [],
+  "registryDependencies": [],
   "files": [
     {
       "path": "src/icons/bell-active-icon.tsx",
+      "content": "\"use client\";\r\n\r\nimport { motion, useAnimate } from \"motion/react\";\r\nimport { forwardRef, useImperativeHandle } from \"react\";\r\n\r\nimport type { AnimatedIconHandle, AnimatedIconProps } from \"@/icons/types\";\r\n\r\nexport const BellActiveIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(\r\n  ({ size = 24, color = \"currentColor\", className = \"\", ...props }, ref) => {\r\n    const [scope, animate] = useAnimate();\r\n\r\n    const startAnimation = async () => {\r\n      animate(\r\n        \".bell-body\",\r\n        { rotate: [0, -18, 16, -12, 9, -5, 3, 0] },\r\n        {\r\n          duration: 1.4,\r\n          ease: [0.36, 0.07, 0.19, 0.97], // custom spring-like easing\r\n          times: [0, 0.12, 0.28, 0.44, 0.58, 0.72, 0.86, 1],\r\n        },\r\n      );\r\n\r\n      animate(\r\n        \".bell-arc\",\r\n        { rotate: [0, -10, 9, -7, 5, -3, 2, 0] },\r\n        {\r\n          duration: 1.4,\r\n          ease: [0.36, 0.07, 0.19, 0.97],\r\n          times: [0, 0.12, 0.28, 0.44, 0.58, 0.72, 0.86, 1],\r\n          delay: 0.06,\r\n        },\r\n      );\r\n    };\r\n\r\n    const stopAnimation = () => {\r\n      animate(\".bell-body\", { rotate: 0 }, { duration: 0.4, ease: \"easeOut\" });\r\n      animate(\".bell-arc\", { rotate: 0 }, { duration: 0.4, ease: \"easeOut\" });\r\n    };\r\n\r\n    useImperativeHandle(ref, () => ({\r\n      startAnimation,\r\n      stopAnimation,\r\n    }));\r\n\r\n    return (\r\n      <motion.svg\r\n        ref={scope}\r\n        onMouseEnter={startAnimation}\r\n        onMouseLeave={stopAnimation}\r\n        xmlns=\"http://www.w3.org/2000/svg\"\r\n        width={size}\r\n        height={size}\r\n        viewBox=\"0 0 24 24\"\r\n        fill={color}\r\n        className={`cursor-pointer ${className}`}\r\n        style={{ overflow: \"visible\" }}\r\n        role=\"img\"\r\n        aria-label=\"Bell active icon\"\r\n        {...props}\r\n      >\r\n        <title>Bell active icon</title>\r\n\r\n        {/* Main bell + clapper — pivots from the hanging point */}\r\n        <motion.g\r\n          className=\"bell-body\"\r\n          style={{ transformOrigin: \"12px 2px\" }}\r\n        >\r\n          <path d=\"M11.209 3.816a1 1 0 0 0-1.966.368l.325 1.74a5.338 5.338 0 0 0-2.8 5.762l.276 1.473.055.296c.258 1.374-.228 2.262-.63 2.998-.285.52-.527.964-.437 1.449.11.586.22 1.173.75 1.074l12.7-2.377c.528-.1.418-.685.308-1.27-.103-.564-.636-1.123-1.195-1.711-.606-.636-1.243-1.306-1.404-2.051-.233-1.085-.275-1.387-.303-1.587-.009-.063-.016-.117-.028-.182a5.338 5.338 0 0 0-5.353-4.39l-.298-1.592Z\" />\r\n          <path d=\"M8.95 19.7c.7.8 1.7 1.3 2.8 1.3 1.6 0 2.9-1.1 3.3-2.5l-6.1 1.2Z\" />\r\n        </motion.g>\r\n\r\n        <motion.path\r\n          className=\"bell-arc\"\r\n          fillRule=\"evenodd\"\r\n          d=\"M6.539 4.278a1 1 0 0 1 .07 1.412c-1.115 1.23-1.705 2.605-1.83 4.26a1 1 0 0 1-1.995-.15c.16-2.099.929-3.893 2.342-5.453a1 1 0 0 1 1.413-.069Z\"\r\n          clipRule=\"evenodd\"\r\n          style={{ transformOrigin: \"5px 4px\" }}\r\n        />\r\n      </motion.svg>\r\n    );\r\n  },\r\n);\r\n\r\nBellActiveIcon.displayName = \"BellActiveIcon\";",
       "type": "registry:component",
       "target": "icons/bell-active-icon.tsx"
     },
     {
       "path": "src/icons/types.ts",
+      "content": "import type { SVGMotionProps } from \"motion/react\";\nimport type { ComponentType } from \"react\";\n\nexport type HoverlyIconCategory = \"All\" | \"Social\" | \"UI\" | \"Arrows\";\n\nexport interface AnimatedIconHandle {\n  startAnimation: () => void | Promise<void>;\n  stopAnimation: () => void | Promise<void>;\n}\n\nexport interface AnimatedIconProps\n  extends Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> {\n  size?: number;\n  color?: string;\n  strokeWidth?: number;\n  className?: string;\n}\n\nexport type HoverlyIconProps = AnimatedIconProps;\n\nexport interface IconCliCommand {\n  label: string;\n  command: string;\n}\n\nexport interface HoverlyIconRecord {\n  slug: string;\n  name: string;\n  category: Exclude<HoverlyIconCategory, \"All\">;\n  description: string;\n  tags: string[];\n  componentName: string;\n  importPath: string;\n  sourceCode: string;\n  registryUrl: string;\n  cliCommands: IconCliCommand[];\n}\n\nexport type HoverlyIconComponent = ComponentType<AnimatedIconProps>;\n",
       "type": "registry:lib",
       "target": "icons/types.ts"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

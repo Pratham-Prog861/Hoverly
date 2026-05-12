@@ -1,22 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ampersand-icon",
-  "type": "registry:component",
   "title": "Ampersand Icon",
   "description": "A shadcn-compatible animated Ampersand Icon powered by Motion.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
+  "devDependencies": [],
+  "registryDependencies": [],
   "files": [
     {
       "path": "src/icons/ampersand-icon.tsx",
+      "content": "\"use client\";\r\n\r\nimport { forwardRef, useImperativeHandle } from \"react\";\r\nimport type { AnimatedIconHandle, AnimatedIconProps } from \"./types\";\r\nimport { motion, useAnimate } from \"motion/react\";\r\n\r\nconst AmpersandIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(\r\n  (\r\n    { size = 40, className = \"\", color = \"currentColor\", strokeWidth = \"2\" },\r\n    ref,\r\n  ) => {\r\n    const [scope, animate] = useAnimate();\r\n\r\n    const start = async () => {\r\n      animate(\"path\", { pathLength: [0, 1] }, { duration: 0.6 });\r\n    };\r\n\r\n    const stop = async () => {\r\n      animate(\"path\", { pathLength: 1 }, { duration: 0.3 });\r\n    };\r\n\r\n    useImperativeHandle(ref, () => {\r\n      return {\r\n        startAnimation: start,\r\n        stopAnimation: stop,\r\n      };\r\n    });\r\n\r\n    const handleHoverStart = () => {\r\n      start();\r\n    };\r\n\r\n    const handleHoverEnd = () => {\r\n      stop();\r\n    };\r\n\r\n    return (\r\n      <motion.svg\r\n        ref={scope}\r\n        onHoverStart={handleHoverStart}\r\n        onHoverEnd={handleHoverEnd}\r\n        xmlns=\"http://www.w3.org/2000/svg\"\r\n        width={size}\r\n        height={size}\r\n        viewBox=\"0 0 24 24\"\r\n        fill=\"none\"\r\n        stroke=\"currentColor\"\r\n        strokeWidth={strokeWidth}\r\n        strokeLinecap=\"round\"\r\n        strokeLinejoin=\"round\"\r\n        color={color}\r\n        className={`cursor-pointer ${className}`}\r\n      >\r\n        <path d=\"M16 12h3\" />\r\n        <path d=\"M17.5 12a8 8 0 0 1-8 8A4.5 4.5 0 0 1 5 15.5c0-6 8-4 8-8.5a3 3 0 1 0-6 0c0 3 2.5 8.5 12 13\" />\r\n      </motion.svg>\r\n    );\r\n  },\r\n);\r\n\r\nAmpersandIcon.displayName = \"AmpersandIcon\";\r\n\r\nexport default AmpersandIcon;\r\n",
       "type": "registry:component",
       "target": "icons/ampersand-icon.tsx"
     },
     {
       "path": "src/icons/types.ts",
+      "content": "import type { SVGMotionProps } from \"motion/react\";\nimport type { ComponentType } from \"react\";\n\nexport type HoverlyIconCategory = \"All\" | \"Social\" | \"UI\" | \"Arrows\";\n\nexport interface AnimatedIconHandle {\n  startAnimation: () => void | Promise<void>;\n  stopAnimation: () => void | Promise<void>;\n}\n\nexport interface AnimatedIconProps\n  extends Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> {\n  size?: number;\n  color?: string;\n  strokeWidth?: number;\n  className?: string;\n}\n\nexport type HoverlyIconProps = AnimatedIconProps;\n\nexport interface IconCliCommand {\n  label: string;\n  command: string;\n}\n\nexport interface HoverlyIconRecord {\n  slug: string;\n  name: string;\n  category: Exclude<HoverlyIconCategory, \"All\">;\n  description: string;\n  tags: string[];\n  componentName: string;\n  importPath: string;\n  sourceCode: string;\n  registryUrl: string;\n  cliCommands: IconCliCommand[];\n}\n\nexport type HoverlyIconComponent = ComponentType<AnimatedIconProps>;\n",
       "type": "registry:lib",
       "target": "icons/types.ts"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

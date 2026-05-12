@@ -1,22 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "threads-icon",
-  "type": "registry:component",
   "title": "Threads Icon",
   "description": "A shadcn-compatible animated Threads Icon powered by Motion.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
+  "devDependencies": [],
+  "registryDependencies": [],
   "files": [
     {
       "path": "src/icons/threads-icon.tsx",
+      "content": "\"use client\";\r\n\r\nimport { forwardRef, useImperativeHandle } from \"react\";\r\nimport type { AnimatedIconHandle, AnimatedIconProps } from \"./types\";\r\nimport { motion, useAnimate } from \"motion/react\";\r\n\r\nconst BrandThreadsIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(\r\n  (\r\n    { size = 24, color = \"currentColor\", strokeWidth = 2, className = \"\" },\r\n    ref,\r\n  ) => {\r\n    const [scope, animate] = useAnimate();\r\n\r\n    const start = async () => {\r\n      // Reset\r\n      animate(scope.current, { scale: 1, rotate: 0 });\r\n      animate(\".animated-path\", { pathLength: 1, opacity: 1 });\r\n\r\n      // Animation\r\n      animate(\r\n        \".animated-path\",\r\n        { pathLength: [0, 1], opacity: [0, 1] },\r\n        { duration: 1, ease: \"easeInOut\" },\r\n      );\r\n\r\n      await animate(\r\n        scope.current,\r\n        {\r\n          scale: [0.5, 1.1, 1],\r\n          rotate: [180, -10, 0],\r\n        },\r\n        {\r\n          duration: 1,\r\n          ease: [0.34, 1.56, 0.64, 1],\r\n        },\r\n      );\r\n    };\r\n\r\n    const stop = () => {\r\n      animate(scope.current, { scale: 1, rotate: 0 });\r\n      animate(\".animated-path\", { pathLength: 1, opacity: 1 });\r\n    };\r\n\r\n    useImperativeHandle(ref, () => {\r\n      return {\r\n        startAnimation: start,\r\n        stopAnimation: stop,\r\n      };\r\n    });\r\n\r\n    const handleHoverStart = () => {\r\n      start();\r\n    };\r\n\r\n    const handleHoverEnd = () => {\r\n      stop();\r\n    };\r\n\r\n    return (\r\n      <motion.svg\r\n        ref={scope}\r\n        onHoverStart={handleHoverStart}\r\n        onHoverEnd={handleHoverEnd}\r\n        xmlns=\"http://www.w3.org/2000/svg\"\r\n        width={size}\r\n        height={size}\r\n        viewBox=\"0 0 24 24\"\r\n        fill=\"none\"\r\n        stroke={color}\r\n        strokeWidth={strokeWidth}\r\n        strokeLinecap=\"round\"\r\n        strokeLinejoin=\"round\"\r\n        className={`cursor-pointer ${className}`}\r\n      >\r\n        <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\" />\r\n        <motion.path\r\n          className=\"animated-path\"\r\n          d=\"M19 7.5c-1.333 -3 -3.667 -4.5 -7 -4.5c-5 0 -8 2.5 -8 9s3.5 9 8 9s7 -3 7 -5s-1 -5 -7 -5c-2.5 0 -3 1.25 -3 2.5c0 1.5 1 2.5 2.5 2.5c2.5 0 3.5 -1.5 3.5 -5s-2 -4 -3 -4s-1.833 .333 -2.5 1\"\r\n        />\r\n      </motion.svg>\r\n    );\r\n  },\r\n);\r\n\r\nBrandThreadsIcon.displayName = \"BrandThreadsIcon\";\r\n\r\nexport default BrandThreadsIcon;\r\n",
       "type": "registry:component",
       "target": "icons/threads-icon.tsx"
     },
     {
       "path": "src/icons/types.ts",
+      "content": "import type { SVGMotionProps } from \"motion/react\";\nimport type { ComponentType } from \"react\";\n\nexport type HoverlyIconCategory = \"All\" | \"Social\" | \"UI\" | \"Arrows\";\n\nexport interface AnimatedIconHandle {\n  startAnimation: () => void | Promise<void>;\n  stopAnimation: () => void | Promise<void>;\n}\n\nexport interface AnimatedIconProps\n  extends Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> {\n  size?: number;\n  color?: string;\n  strokeWidth?: number;\n  className?: string;\n}\n\nexport type HoverlyIconProps = AnimatedIconProps;\n\nexport interface IconCliCommand {\n  label: string;\n  command: string;\n}\n\nexport interface HoverlyIconRecord {\n  slug: string;\n  name: string;\n  category: Exclude<HoverlyIconCategory, \"All\">;\n  description: string;\n  tags: string[];\n  componentName: string;\n  importPath: string;\n  sourceCode: string;\n  registryUrl: string;\n  cliCommands: IconCliCommand[];\n}\n\nexport type HoverlyIconComponent = ComponentType<AnimatedIconProps>;\n",
       "type": "registry:lib",
       "target": "icons/types.ts"
     }
-  ]
+  ],
+  "type": "registry:component"
 }
